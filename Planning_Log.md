@@ -9,3 +9,4 @@
 * 11:30 - WIP planning log, user stories.
 * 13:30 - rough draft of project proposal complete.
 * 14.27 - WIP component tree map
+* 15.02 - WIP component tree map... _withbuggy eyes_
