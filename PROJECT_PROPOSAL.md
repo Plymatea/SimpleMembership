@@ -21,18 +21,11 @@
     * _HEMAA Expiration date_
     * _Registration date_
   * _Users can log in and edit their own profile_
-  * _Admin can create account manually for new user complete with password_
-  * _User can change their password, or recover their password_
-  * _Users can have reoccurring memberships with start dates and end dates_
-  * _Attach files to account:_
-    * _Liability Waiver_
-    * _HEMAA Screenshot_
-
+  
 * ### _Account Security_
   * _Admin users can assign authority to other users_
     * _This app will have member and admin only_
   * _Members can only see their own profiles_
-  * _Members can see basic information about other users_
 
 * ### _Memberships_
   * _Admin can create "memberships" which have the following info:_
@@ -49,6 +42,27 @@
       * _Unlimited_
       * _Limited_
         * _Classes per week_
+
+### Technologies used for MVP: Be specific. 
+* _MongoDb_
+* _Express.js_
+* _React_
+* _Node.js_
+
+### Stretch Goals: 
+* ### _Accounts_
+  * _Admin can create accounts manually for new user complete with password_
+  * _User can change their password, or recover their password_
+  * _Users can have reoccurring memberships with start dates and end dates_
+  * _Attach files to account:_
+    * _Liability Waiver_
+    * _HEMAA Screenshot_
+
+* ### _Account Security_
+  * _Members can see basic information about other users_
+
+* ### _Memberships_
+  * _None yet_
 
 * ### _Financial_
   * _Use a 3rd party app to take monies related to memberships on a reoccurring basis_
@@ -74,24 +88,12 @@
   * _Announcements from admin_
 
 * ### _Attendance_
-
-
-
-
-
-
-
-
-
-### Technologies used for MVP: Be specific. 
-_ _
-
-### Stretch Goals: 
-_Be specific._
-Ability to customize authorization levels
+  * _Log members "attended" to a specific class on the calendar_
 
 ### Technologies used for stretch goals: 
-_Be specific._
+*note: Some stretch goals are firmly in the "idea" stage and need more research and thought. They were included as part of a larger brainstorming process as possibilities. The below is in incomplete list of the tech that may be needed.*
+* _Google calendar API_
+* _Stripe payment processing API_
 
 ### Is there anything else you'd like your instructor to know?
-_ _
+* _N/A_
