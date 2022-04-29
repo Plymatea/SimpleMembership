@@ -1,4 +1,36 @@
-# Getting Started with Create React App
+# _Simple Membership_
+
+#### By **_Andy Plymate_**
+
+#### _A webpage to manage memberships for small clubs or gyms_
+
+## Technologies Used
+
+* _MongoDb_
+* _Express.js_
+* _React_
+* _Node.js_
+* _JavaScript_
+
+## Description
+
+_[Lorum Ipsum]_
+
+## Setup/Installation Requirements
+* _Requires VSCode_
+
+* _You can find the github repository [here]([lorum ispum])_
+* _In your preferred terminal, navigate to the directory you would like to store the project_
+* _$ `git clone [lorum ispum]`_
+* _Now that the repository is cloned to your computer, right click on the folder and click "open with vs code"_
+* _Navigate your terminal to the project folder and run $ `npm start` to start the development server. 
+
+## Component Map
+
+![Simple Membership Component Tree](public\ComponentMap.png "Component Map")
+
+
+## Create React App documentation
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -68,3 +100,18 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+## Known Bugs
+
+* _No Known Bugs_
+
+## Road Map
+
+* _[lorum ispum]_
+
+
+## License - [MIT](https://opensource.org/licenses/MIT)
+
+
+Copyright (c) _2022_ _Andy Plymate_
