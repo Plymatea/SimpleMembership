@@ -8,3 +8,4 @@
 * 10:12 - Finish group brain storming session for additional ideas/paths forward.
 * 11:30 - WIP planning log, user stories.
 * 13:30 - rough draft of project proposal complete.
+* 14.27 - WIP component tree map
