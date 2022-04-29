@@ -95,5 +95,47 @@
 * _Google calendar API_
 * _Stripe payment processing API_
 
+### Proposed Component Tree Map
+*note: This component tree tries to envision all stretch goal as best as possible at this point. This may change as the project develops.
+* [Component Tree Map](public\mermaid-diagram-20220429162821.png])
+* _Created using [Mermaid Live](mermaid.live)_
+* _Mermaid code below:_
+```
+graph TD
+    a([App]) 
+        a --> a.a[Style Header]
+            a.a-.-a.a.a
+            a.a-->a.a.bool{Logged in??}
+                a.a.bool-->|true|a.a.a[Profile DropDown]-->a.e
+                    a.a.a -->a.a.a.a[Log out button]
+                a.a.bool-->|false|a.a.b[No Render]
+        a --> a.b[Footer]
+        a-->a.c[Landing Page, Login]
+            a.c-->a.a.bool
+        a.a.bool-->|true|a.d[Sidebar Nav Control]
+            a.d --> a.d.a[Setup]-->a.e
+                a.d.a --> a.d.a.a[Setup Memberships]
+                a.d.a --> a.d.a.b[Setup People]
+                a.d.a --> a.d.a.c[Setup Calendar]
+            a.d-->a.d.b[Memberships]-->a.e
+            a.d-->a.d.c[Members]-->a.e
+            a.d-->a.d.d[Finances]-->a.e
+            a.d-->a.d.e[Reports]-->a.e
+        a.a.bool---true-->a.e[Viewing Pane]
+            a.e-->a.e.a[View all Members]
+                a.e.a-->a.e.a.a[Member details]
+                    a.e.a.a-->a.e.a.a.a.a[Edit Member Details]
+                    a.e.a.a-->a.e.a.a.a.b[Inactivate Member]
+                a.e.a-->a.e.a.b[Add new member]
+            a.e-->a.e.b[View all Memberships]
+                a.e.b-->a.e.b.a[Add New Membership]
+                a.e.b-->a.e.b.b[Membership Details]
+                    a.e.b.b-->a.e.b.a.a[Edit Membership Details]
+                    a.e.b.b-->a.e.b.a.b[Inactivate Membership]
+            a.e-->a.e.c[View Financials]
+                a.e.c-->a.e.c.a
+                a.e.c-->a.e.c.b
+                a.e.c-->a.e.c.c
+```
 ### Is there anything else you'd like your instructor to know?
 * _N/A_
