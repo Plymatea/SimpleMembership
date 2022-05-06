@@ -15,3 +15,6 @@
 
 #### 2022.05.01
 * 18:57 - Finish youtube video about MERN stack https://youtu.be/VGo2WbvHurU
+
+#### 2022.05.06
+* 10:19 - Finish youtube video about MERN Stack _different one_  https://youtu.be/-0exw-9YJBo
