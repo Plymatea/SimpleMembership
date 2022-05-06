@@ -1,6 +1,6 @@
 const mongoose = ('mongoose')
 
-const memberSchema = mongoose.Schema(
+const userSchema = mongoose.Schema(
   {
     email: {
       type: String,
@@ -23,3 +23,5 @@ const memberSchema = mongoose.Schema(
     timestamps: true
   }
 )
+
+module.exports = mongoose.model('User', userSchema)

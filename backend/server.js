@@ -15,7 +15,7 @@ app.use(express.urlencoded( {extended: false} ))
 
 
 // Member Routes
-app.use('/api/member', require('./routes/memberRoutes'))
+app.use('/api/user', require('./routes/userRoutes'))
 app.use(errorHandler)
 
 // Start listener on Port
