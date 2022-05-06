@@ -18,3 +18,5 @@
 
 #### 2022.05.06
 * 10:19 - Finish youtube video about MERN Stack _different one_  https://youtu.be/-0exw-9YJBo
+* 15:51 - Going to research differences in npm connect-mongo,  npm connect-mongo-session, npm express-session, npm jwt, npm passport
+* 16:53 - going to use passport and express-session.

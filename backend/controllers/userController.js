@@ -5,7 +5,6 @@ const User = require('../models/userModel')
 //@desc  Get Users
 // @route GET /api/goals
 // @access private
-
 const getUsers = asyncHandler(async (req, res) => {
   const users = await User.find()
   
@@ -15,7 +14,6 @@ const getUsers = asyncHandler(async (req, res) => {
 //@desc  Create Users
 // @route POST /api/goals
 // @access private
-
 const createUser = asyncHandler(async (req, res) => {
   if (!req.body.email) {
     res.status(400)
@@ -30,7 +28,6 @@ const createUser = asyncHandler(async (req, res) => {
 //@desc  Edit Specific User
 // @route PUT /api/goals/:id
 // @access private
-
 const editUser = asyncHandler(async (req, res) => {
   const user = await User.findById(req.params.id)
 
@@ -51,7 +48,6 @@ const editUser = asyncHandler(async (req, res) => {
 //@desc  Delete Specific User
 // @route Delete /api/goals/:id
 // @access private
-
 const deleteUser = asyncHandler(async (req, res) => {
   const user = await User.findById(req.params.id)
 console.log(user)
@@ -63,6 +59,8 @@ console.log(user)
   await user.remove()
   res.status(200).json( { id: req.params.id } )  
 })
+
+
 
 module.exports = {
   getUsers,

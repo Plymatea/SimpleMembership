@@ -9,13 +9,13 @@ connectDB()
 
 const app = express()
 
-// Middleware
+// Middleware for parsing request bodies
 app.use(express.json())
 app.use(express.urlencoded( {extended: false} ))
 
 
 // Member Routes
-app.use('/api/user', require('./routes/userRoutes'))
+app.use('/api/', require('./routes/index'))
 app.use(errorHandler)
 
 // Start listener on Port
