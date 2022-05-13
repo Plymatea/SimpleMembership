@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-const userSchema = new mongoose.Schema(
+const UserSchema = new mongoose.Schema(
   {
     email: {
       type: String,
@@ -8,7 +8,7 @@ const userSchema = new mongoose.Schema(
     }
   }, 
   {
-    discordID: {
+    id: {
     type: String,
     required: true
     }
@@ -24,25 +24,26 @@ const userSchema = new mongoose.Schema(
   }
 )
 
-const customerSchema = new mongoose.Schema(
-  {
-    stripeId: {
-      type: String,
-      required: false
-    }
-  },
-  {
-    subscriptionID: {
-      type: String,
-      required: false
-    }
-  },
-  {
-    subscriptionDate: {
-      type: String,
-      required: false
-    }
-  },
-)
 
-module.exports = mongoose.model('User', userSchema)
+// const customerSchema = new mongoose.Schema(
+//   {
+//     stripeId: {
+//       type: String,
+//       required: false
+//     }
+//   },
+//   {
+//     subscriptionID: {
+//       type: String,
+//       required: false
+//     }
+//   },
+//   {
+//     subscriptionDate: {
+//       type: String,
+//       required: false
+//     }
+//   },
+// )
+
+module.exports = mongoose.model('User', UserSchema)

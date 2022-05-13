@@ -2,9 +2,24 @@
 const passport = require('passport')
 const { Strategy } = require('passport-discord')
 const User = require('../models/userModel')
-// const { getUsers, createUser, editUser, deleteUser} = require('../controllers/userController');
-// const { create } = require('../models/userModel');
 
+passport.serializeUser((user, done) => {
+  console.log("serializing user")
+  console.log(user)
+  done(null, user.id)
+})
+
+// passport.deserializeUser(async (discordID, done) => {
+//   console.log("DE-serializing user")
+//   console.log(discordID)
+//   try {
+//     const userDB = await User.findOne({ discordID })
+//     return userDB ? done(null, userDB) : done(null, null)
+//   } catch (err) {
+//     console.log(err)
+//     return done(err, null)
+//   }
+// })
 
 
 passport.use(
@@ -19,11 +34,15 @@ passport.use(
       console.log(profile)
       const { email, id } = profile
       try {
-        const userDB = await User.findOne ({ id });
+        const userDB = await User.findOne({ id });
+        console.log("userdb: " + userDB)
         if (!userDB) {
-          const newUser = await User.create({ id, email})
+          console.log("User not FOund in DB:  Creating New User".bgMagenta)
+          console.log("this is the discord id " + id)
+          const newUser = await User.create([{ email, id }])
           console.log(newUser)
         }
+        console.log('user found!!!!!'.bgBlue)
         return done(null, userDB)
       } catch (err) {
         return done(err, null)
