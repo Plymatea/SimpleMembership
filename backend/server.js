@@ -1,7 +1,9 @@
+const dotenv = require('dotenv').config()
 const express = require('express')
 const session = require('express-session')
+const passport = require('passport')
+require ('./passportStrategies/discord')
 const colors = require('colors')
-const dotenv = require('dotenv').config()
 const connectDB = require('./config/db')
 const { errorHandler } = require('./middleware/errorMiddleware')
 const port = process.env.PORT || 5000
@@ -26,6 +28,10 @@ app.use(session({
 // Routes
 app.use('/api/', require('./routes/index'))
 app.use(errorHandler)
+
+//passport strategies
+app.use(passport.initialize());
+app.use(passport.session())
 
 // Start listener on Port
 app.listen(port, () => console.log(`Server started on port: ${port}`))

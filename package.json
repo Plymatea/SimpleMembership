@@ -12,6 +12,8 @@
     "express-async-handler": "^1.2.0",
     "express-session": "^1.17.2",
     "mongoose": "^6.3.2",
+    "passport": "^0.5.2",
+    "passport-discord": "^0.1.4",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "react-scripts": "5.0.1",

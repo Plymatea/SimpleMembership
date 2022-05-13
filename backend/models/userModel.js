@@ -1,18 +1,18 @@
 const mongoose = require('mongoose')
 
-const userSchema = mongoose.Schema(
+const userSchema = new mongoose.Schema(
   {
     email: {
       type: String,
-      required: [true, 'Please enter your email']
+      required: true
     }
   }, 
-  // {
-  //   firstName: {
-  //   type: String,
-  //   required: [true, 'Please enter your first name']
-  //   }
-  // }, 
+  {
+    discordID: {
+    type: String,
+    required: true
+    }
+  }, 
   // {
   //   lastName: {
   //   type: String,
@@ -22,6 +22,27 @@ const userSchema = mongoose.Schema(
   {
     timestamps: true
   }
+)
+
+const customerSchema = new mongoose.Schema(
+  {
+    stripeId: {
+      type: String,
+      required: false
+    }
+  },
+  {
+    subscriptionID: {
+      type: String,
+      required: false
+    }
+  },
+  {
+    subscriptionDate: {
+      type: String,
+      required: false
+    }
+  },
 )
 
 module.exports = mongoose.model('User', userSchema)
