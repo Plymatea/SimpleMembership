@@ -6,20 +6,20 @@ const User = require('../models/userModel')
 passport.serializeUser((user, done) => {
   console.log("serializing user")
   console.log(user)
-  done(null, user.id)
+  done(null, user)
 })
 
-// passport.deserializeUser(async (discordID, done) => {
-//   console.log("DE-serializing user")
-//   console.log(discordID)
-//   try {
-//     const userDB = await User.findOne({ discordID })
-//     return userDB ? done(null, userDB) : done(null, null)
-//   } catch (err) {
-//     console.log(err)
-//     return done(err, null)
-//   }
-// })
+passport.deserializeUser(async (user, done) => {
+  console.log("DE-serializing user")
+  console.log(user.discordID)
+  try {
+    const userDB = await User.findOne({ user })
+    return userDB ? done(null, userDB) : done(null, null)
+  } catch (err) {
+    console.log(err)
+    return done(err, null)
+  }
+})
 
 
 passport.use(
@@ -34,13 +34,10 @@ passport.use(
       console.log(profile)
       const { email, id } = profile
       try {
-        const userDB = await User.findOne({ id });
-        console.log("userdb: " + userDB)
+        const userDB = await User.findOne({ discordID: id });
         if (!userDB) {
-          console.log("User not FOund in DB:  Creating New User".bgMagenta)
-          console.log("this is the discord id " + id)
-          const newUser = await User.create([{ email, id }])
-          console.log(newUser)
+          const newUser = await User.create({ email: email, discordID: id })
+          return done(null, newUser)
         }
         console.log('user found!!!!!'.bgBlue)
         return done(null, userDB)

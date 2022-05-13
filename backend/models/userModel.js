@@ -1,29 +1,18 @@
 const mongoose = require('mongoose')
 
 const UserSchema = new mongoose.Schema(
-  {
-    email: {
+  { 
+  email: {
       type: String,
-      required: true
-    }
+      required: true,
+    },
+    discordID: {
+      type: String,
+      required: true,
+    },
   }, 
-  {
-    id: {
-    type: String,
-    required: true
-    }
-  }, 
-  // {
-  //   lastName: {
-  //   type: String,
-  //   required: [true, 'Please enter your last name']
-  //   }
-  // },
-  {
-    timestamps: true
-  }
+  {timestamps: true}
 )
-
 
 // const customerSchema = new mongoose.Schema(
 //   {

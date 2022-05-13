@@ -3,7 +3,7 @@ const asyncHandler = require ('express-async-handler')
 const User = require('../models/userModel')
 
 //@desc  Get Users
-// @route GET /api/goals
+// @route GET /api/users
 // @access private
 const getUsers = asyncHandler(async (req, res) => {
   const users = await User.find()
@@ -12,7 +12,7 @@ const getUsers = asyncHandler(async (req, res) => {
 })
 
 //@desc  Create Users
-// @route POST /api/goals
+// @route POST /api/users
 // @access private
 const createUser = asyncHandler(async (req, res) => {
   if (!req.body.email) {
@@ -26,7 +26,7 @@ const createUser = asyncHandler(async (req, res) => {
 })
 
 //@desc  Edit Specific User
-// @route PUT /api/goals/:id
+// @route PUT /api/users/:id
 // @access private
 const editUser = asyncHandler(async (req, res) => {
   const user = await User.findById(req.params.id)
@@ -46,7 +46,7 @@ const editUser = asyncHandler(async (req, res) => {
 })
 
 //@desc  Delete Specific User
-// @route Delete /api/goals/:id
+// @route Delete /api/users/:id
 // @access private
 const deleteUser = asyncHandler(async (req, res) => {
   const user = await User.findById(req.params.id)
