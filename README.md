@@ -4,6 +4,8 @@
 
 #### _A webpage to manage memberships for small clubs or gyms_
 
+_ENTIRE APP UNDER CONSTRUCTION CURRENTLY_
+
 ## Technologies Used
 
 * _MongoDb_
