@@ -6,14 +6,15 @@ const User = require('../models/userModel')
 passport.serializeUser((user, done) => {
   console.log("serializing user")
   console.log(user)
-  done(null, user)
+  done(null, user._id)
 })
 
-passport.deserializeUser(async (user, done) => {
+passport.deserializeUser(async (id, done) => {
   console.log("DE-serializing user")
-  console.log(user.discordID)
+  console.log(id)
   try {
-    const userDB = await User.findOne({ user })
+    const userDB = await User.findOne({ id })
+    console.log(userDB.id)
     return userDB ? done(null, userDB) : done(null, null)
   } catch (err) {
     console.log(err)

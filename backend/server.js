@@ -1,12 +1,14 @@
 const dotenv = require('dotenv').config()
 const express = require('express')
 const session = require('express-session')
+const MongoStore = require('connect-mongo')
 const passport = require('passport')
 require ('./passportStrategies/discord')
 const colors = require('colors')
 const connectDB = require('./config/db')
 const { errorHandler } = require('./middleware/errorMiddleware')
 const port = process.env.PORT || 5000
+
 
 connectDB()
 
@@ -23,16 +25,20 @@ app.use(session({
   saveUninitialized: false,
   resave: false, 
   secret: process.env.EXPRESS_SESSION_SECRET,
+  store: MongoStore.create({ 
+    mongoUrl: process.env.MONGO_URI
+  })
 }))
-
-// Routes
-app.use('/api/', require('./routes/index'))
-app.use(errorHandler)
 
 //passport strategies
 app.use(passport.initialize());
 app.use(passport.session())
 
+// Routes
+app.use('/api/', require('./routes/index'))
+app.use(errorHandler)
+
 // Start listener on Port
 app.listen(port, () => console.log(`Server started on port: ${port}`))
+
 

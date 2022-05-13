@@ -23,3 +23,4 @@
 
 #### 2022.05.13
 * 09:32 - Start passport and discord integration
+* 14:25 - Been working all day to try and figure out Discord auth. I've been able to query discord and return the user. Finally overcame creating a user in my DB with the discordID and discord email. Still stuck on persisting the user through express-session with the use of a cookie. 
