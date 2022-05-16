@@ -27,3 +27,5 @@
 * 15:53 - Finally got the discord to properly auth a session, save a cookie locally, and store the session ID in MongoDB. This completes the ability to persist sessions across server reloads. FML
 * 16:40 - Finished for the day after scrubbing the env file from my git repo
 
+#### 2022.05.16
+* 12:20 - Spend the morning reorganizing the folder structure to have a front end and back end folder. The back end is on port 5000 while the front end is on 3000.  Created a login page, which redirects to the discord auth page, and after authentication redirects to '/members' page.  If you try and access '/members' without being authenticated, it redirects you to the login page.  I can utilize these same mechanisms for future pages needing authentication. 
