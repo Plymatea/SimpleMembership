@@ -97,7 +97,7 @@
 
 ### Proposed Component Tree Map
 *note: This component tree tries to envision all stretch goal as best as possible at this point. This may change as the project develops.
-* [Component Tree Map](public\mermaid-diagram-20220429162821.png])
+* [Component Tree Map](./front-end/public/mermaid-diagram-20220429162821.png)
 * _Created using [Mermaid Live](mermaid.live)_
 * _Mermaid code below:_
 ```

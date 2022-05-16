@@ -2,6 +2,7 @@ const dotenv = require('dotenv').config()
 const express = require('express')
 const session = require('express-session')
 const MongoStore = require('connect-mongo')
+const cors = require('cors')
 const passport = require('passport')
 require ('./passportStrategies/discord')
 const colors = require('colors')
@@ -17,6 +18,10 @@ const app = express()
 // Middleware for parsing request bodies
 app.use(express.json())
 app.use(express.urlencoded( {extended: false} ))
+app.use(cors({
+  origin: ['http://localhost:3000'],
+  credentials: true,
+}))
 
 app.use(session({
   cookie: {
