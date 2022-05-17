@@ -35,6 +35,24 @@
 #### 2022.05.17
 * 9:04 - Going to test out the .useRef hook that I think solved my issue last night. Then I'm going continue building out the various pages and such for a working site.  I'm going to leave the authentication at just Discord for now, and integration of stripe payments later as well. There isn't much time to have a presentable project for Thursday. 
 * 12:15 - Found an accordion style menu online and decided to use it. First had issues with dependencies. Got over that hurdle. Then realized the the syntax of the `Accordion.js` file was 5 years old. I had to reformat it for current React syntax. It work now though!!  I have absolutely no CSS styling yet. I'm wrapping each of my components in a `<div className='componentName>` so that later the styling *should* go easy. haha
- 
+* 13:02 - I played around with dynamically displaying all the userData on the members page, but couldn't get it to work... Absolutely no idea why. Console.log shows "userData" is an object, but when I tried to Object.entries() and display it, it threw an error that it was null. I think this was due to the loading screen where userData is == null. But couldn't figure out how to get around it. 
+* 13:19 - I created a MemberControl and Member Component. I think it's time I figured out how to reach into the MongoDB store from the backend and pull information to the front end to be rendered. I want to grab all the users in the database and display them on the member page. I think I can do this with an api call on the front end, calling a authorized protected route on the backend returning all the users. I feel like I have a little bit of changing to do on the backend, but mostly have it set up for success. I have the "user" api routes set up that I can use. I need to protect them with authentication and then have the front end call the route. ... slowly working my way through it.
+* 15:06 - Was able to all the members in an array and pass it to MemberControl and have each member display in a list. Nice!  I'm really at a spot where my creativity is limiting me atm.  I feel uninspired on what I want to accomplish. I feel the functionality of the MemberPage.jsx route it working pretty well for a MVP. My sidebar includes:
+
+    * Finances
+        * This is will need to come after stripe payment integrations
+    * Memberships
+        * This is will need to come after stripe payment integrations
+    * Members
+        * A user can log in through discord. This really only logs the email address, and discordID. Great for authentication, but I need a form to Capture important profile information about the user.
+        * I feel a user should authenticate using discord, then be redirected to a create user form. From there I can capture the discord information, and send a PUT request to update that user with the accurate information. Might run into issues when a user logs in a second time. I want to stay away from storing passwords and such and completely rely on discord, google, and facebook. 
+        * When a user logs in, there will need to be a check if that user is in the database already. Likely check it by email address. If they are they should be redirected to the member page and not the "New Member Form"
+    * Reports
+        * Reports will be last and ongoing. Gotta get it working and with data to do any report structure. ha
+    * Setup
+        * Setup will be last I think. A place where the use can add new memberships, or member profile fields etc.  
+* 16:02 - I added a lot of fields to my mongoose user schema. I this is more than enough to get me started. Next I want to create a newMemberForm component. A user will go to the login page, authenticate through discord, redirect to the newMemberform, and upon submission of the form, it will send a put request and update the users profile. I'll deal with existing members logging in after that.   I think I'm going to commit and merge the react back end from here too. Everything works as intended right now. 
+
+
 
 

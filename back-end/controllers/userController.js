@@ -2,19 +2,27 @@ const asyncHandler = require ('express-async-handler')
 
 const User = require('../models/userModel')
 
+
 //@desc  Get Users
 // @route GET /api/users
 // @access private
 const getUsers = asyncHandler(async (req, res) => {
+  if (!req.user) {
+    return res.sendStatus(401)
+  }
+
   const users = await User.find()
   
-  res.status(200).json(users)
+  return res.status(200).json(users)
 })
 
 //@desc  Create Users
 // @route POST /api/users
 // @access private
 const createUser = asyncHandler(async (req, res) => {
+  if (!req.user) {
+    return res.sendStatus(401)
+  } 
   if (!req.body.email) {
     res.status(400)
     throw new Error('No email field in request')
@@ -29,6 +37,10 @@ const createUser = asyncHandler(async (req, res) => {
 // @route PUT /api/users/:id
 // @access private
 const editUser = asyncHandler(async (req, res) => {
+  if (!req.user) {
+    return res.sendStatus(401)
+  }
+
   const user = await User.findById(req.params.id)
 
   if (!user) {
@@ -49,8 +61,12 @@ const editUser = asyncHandler(async (req, res) => {
 // @route Delete /api/users/:id
 // @access private
 const deleteUser = asyncHandler(async (req, res) => {
+  if (!req.user) {
+    return res.sendStatus(401)
+  }
+  
   const user = await User.findById(req.params.id)
-console.log(user)
+  console.log(user)
   if (!user) {
     res.status(400)
     throw new Error('User not found');

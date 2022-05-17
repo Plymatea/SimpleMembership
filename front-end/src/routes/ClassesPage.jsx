@@ -4,7 +4,7 @@ import { Header } from "../components/Header";
 import { getAuthStatus } from "../utils/api";
 
 
-export const MemberPage = () => {
+export const ClassesPage = () => {
   let navigate = useNavigate();
   const [loading, setLoading] = React.useState(true)
   const userData = React.useRef()

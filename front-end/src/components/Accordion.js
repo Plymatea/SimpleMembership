@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 
 // var Accordion = React.createClass({
 
-class Accordion extends React.Component {
+export class Accordion extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -64,4 +64,4 @@ class Accordion extends React.Component {
     }))
   }
 
-export default Accordion;
+
