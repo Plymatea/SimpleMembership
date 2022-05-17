@@ -1,23 +1,41 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { Header } from "../components/Header";
 import { getAuthStatus } from "../utils/api";
 
 
 export const MemberPage = () => {
-let navigate = useNavigate()
+  let navigate = useNavigate();
+  const [loading, setLoading] = React.useState(true)
+  const userData = React.useRef()
+
   React.useEffect(() => {
-    getAuthStatus()
-      .then(({ data }) => {
-      console.log(data);
+      getAuthStatus()  // api call and returns current user status
+      .then(({data}) => {  
+        userData.current = data
+        setTimeout(() => setLoading(false), 750)  
       })
       .catch((err) => {
-        console.log(err);
         navigate('../login');
+        setLoading(false);
       })  
   })
-  return (
-    <div>
-      <div>Member Page</div>
+
+  let display = (
+    <div className="member-page">
+      <div> <Header user={userData.current}/></div>
+      <h1>Member Page</h1>
+    </div>    
+    )
+
+  // Display is getAuthStatus is still verifying  
+  if (loading) {
+    display = (
+    <div className="member-page-loading">
+      <h1>Loading poste...</h1>
     </div>
-  )
+    )
+  }
+
+  return display
 };
