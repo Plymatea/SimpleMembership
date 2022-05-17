@@ -30,3 +30,11 @@
 #### 2022.05.16
 * 12:20 - Spend the morning reorganizing the folder structure to have a front end and back end folder. The back end is on port 5000 while the front end is on 3000.  Created a login page, which redirects to the discord auth page, and after authentication redirects to '/members' page.  If you try and access '/members' without being authenticated, it redirects you to the login page.  I can utilize these same mechanisms for future pages needing authentication. 
 * 16:25 - Been really struggling since lunch to start creating pages for the basic design of the site.  I rearranged some stuff. Moved the router inside the `<App />` component. Created a landing page, with a login button redirecting you to the login page.  I've been struggling with creating a `<Header />` on the member page (only when authenticated), that has access to the user info that is logged in.  There is a React.useEffect hook checking the authentication. This does return the credentials of the user, but is not accessible once the render is complete. I tried to use a React.useState hook, but ended up creating an infinite loop and had to shut the server to break it.  Basically, I don't know react hooks well and trying to piece it together. 
+* 17.50 - Finally manage to learn the .useRef is immutable and able to break the .useEffect loop I was stuck in. No time to thoroughly test now but it seems like it's working. 
+
+#### 2022.05.17
+* 9:04 - Going to test out the .useRef hook that I think solved my issue last night. Then I'm going continue building out the various pages and such for a working site.  I'm going to leave the authentication at just Discord for now, and integration of stripe payments later as well. There isn't much time to have a presentable project for Thursday. 
+* 12:15 - Found an accordion style menu online and decided to use it. First had issues with dependencies. Got over that hurdle. Then realized the the syntax of the `Accordion.js` file was 5 years old. I had to reformat it for current React syntax. It work now though!!  I have absolutely no CSS styling yet. I'm wrapping each of my components in a `<div className='componentName>` so that later the styling *should* go easy. haha
+ 
+
+

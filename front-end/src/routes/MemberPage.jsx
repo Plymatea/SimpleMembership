@@ -1,6 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { Header } from "../components/Header";
+import { Sidebar } from "../components/Sidebar";
 import { getAuthStatus } from "../utils/api";
 
 
@@ -24,6 +25,7 @@ export const MemberPage = () => {
   let display = (
     <div className="member-page">
       <div> <Header user={userData.current}/></div>
+      <div className='sidebar'><Sidebar /></div>
       <h1>Member Page</h1>
     </div>    
     )
