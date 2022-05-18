@@ -13,7 +13,7 @@ router.get("/discord", passport.authenticate('discord'));
 
 //  /api/auth/discord/redirect
 router.get("/discord/redirect", passport.authenticate('discord'), (req, res) => {
-  res.redirect('http://localhost:3000/member')
+  res.redirect('http://localhost:3000/newmemberform')
 });
 
 

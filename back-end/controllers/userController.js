@@ -37,12 +37,12 @@ const createUser = asyncHandler(async (req, res) => {
 // @route PUT /api/users/:id
 // @access private
 const editUser = asyncHandler(async (req, res) => {
-  if (!req.user) {
-    return res.sendStatus(401)
-  }
-
+  // if (!req.user) {
+  //   return res.sendStatus(401)
+  // }
+console.log("user returned: "+user)
   const user = await User.findById(req.params.id)
-
+  
   if (!user) {
     res.status(400)
     throw new Error('User not found');

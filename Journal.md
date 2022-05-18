@@ -51,8 +51,10 @@
         * Reports will be last and ongoing. Gotta get it working and with data to do any report structure. ha
     * Setup
         * Setup will be last I think. A place where the use can add new memberships, or member profile fields etc.  
-* 16:02 - I added a lot of fields to my mongoose user schema. I this is more than enough to get me started. Next I want to create a newMemberForm component. A user will go to the login page, authenticate through discord, redirect to the newMemberform, and upon submission of the form, it will send a put request and update the users profile. I'll deal with existing members logging in after that.   I think I'm going to commit and merge the react back end from here too. Everything works as intended right now. 
+* 16:02 - I added a lot of fields to my mongoose user schema. I this is more than enough to get me started. Next I want to create a newMemberForm component. A user will go to the login page, authenticate through discord, redirect to the newMemberForm, and upon submission of the form, it will send a put request and update the users profile. I'll deal with existing members logging in after that.   I think I'm going to commit and merge the react back end from here too. Everything works as intended right now. 
 
+#### 2022.05.18
+* 10:25 - I'm going to work on that newMemberForm and see if I can get it to populate after authentication
 
 
 

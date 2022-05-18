@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-
+console.log("###### reminder that the mailing address needs to be fixed here. usermodel.js")
 const UserSchema = new mongoose.Schema(
   { 
   email: {
@@ -27,7 +27,7 @@ const UserSchema = new mongoose.Schema(
     lastName: {
       type: String,
     },
-    phoneNumber: {
+    homePhoneNumber: {
       type: String,
       validate: {
         validator: function(v) {
@@ -35,6 +35,23 @@ const UserSchema = new mongoose.Schema(
         },
         message: props => `${props.value} is not a valid phone number!`
       },
+    },
+    mobilePhoneNumber: {
+      type: String,
+      validate: {
+        validator: function(v) {
+          return /\d{3}-\d{3}-\d{4}/.test(v);
+        },
+        message: props => `${props.value} is not a valid phone number!`
+      },
+    },
+    //  Mailing address copied from Name. I want to test the set feature first. 
+    mailingAddress: { 
+      type: String,
+      set: () => Object.defineProperty(this, 'name', {
+        value: this.firstName + " " + this.lastName,
+        writable: true,
+      }),
     },
     waiver: {
       signed: {

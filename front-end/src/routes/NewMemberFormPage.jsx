@@ -1,10 +1,10 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { Header } from "../components/Header";
+import { NewMemberForm } from "../components/index";
 import { getAuthStatus } from "../utils/api";
 
 
-export const ClassesPage = () => {
+export const NewMemberFormPage = () => {
   let navigate = useNavigate();
   const [loading, setLoading] = React.useState(true)
   const userData = React.useRef()
@@ -23,8 +23,8 @@ export const ClassesPage = () => {
 
   let display = (
     <div className="classes-page">
-      <div> <Header user={userData.current}/></div>
-      <h1>Classes Page</h1>
+      <div> <NewMemberForm user={userData.current}/></div>
+      <h1>New Member Form </h1>
     </div>    
     )
 

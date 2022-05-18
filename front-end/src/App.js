@@ -1,6 +1,6 @@
 import './App.css';
 import { BrowserRouter as Router, Route, Routes} from 'react-router-dom'
-import { LoginPage, MemberPage, LandingPage } from './routes';
+import { LoginPage, MemberPage, LandingPage, NewMemberFormPage } from './routes';
 
 function App() {
   return (
@@ -18,7 +18,11 @@ function App() {
         <Route 
           path='/member' 
           element={ <MemberPage /> } 
-        />        
+        />  
+        <Route 
+          path='/newmemberform' 
+          element={ <NewMemberFormPage /> } 
+        />       
       </Routes>
     </Router>
   );
