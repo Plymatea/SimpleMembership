@@ -7,37 +7,39 @@ import { getAuthStatus, getAllMembers } from "../utils/api";
 export const MemberPage = () => {
   let navigate = useNavigate();
   const [loading, setLoading] = React.useState(true)
-  const userData = React.useRef()
-  const membersList = React.useRef()
+  const user = React.useRef()
+  const memberList = React.useRef()
 
-  React.useEffect(() => {
-      getAuthStatus()  // api call and returns current user status
-        .then(({data}) => {  
-          userData.current = data
-          setTimeout(() => setLoading(false), 750)  
-        })
-        .then(
-            getAllMembers() // api call to return ALL member data from Mongo
-              .then(({data}) => {
-                membersList.current = data
-              })
-        )
-        .catch((err) => {
-          navigate('../login');
-          setLoading(false);
-        })  
+  React.useEffect( () => {
+    async function apiCall() {
+      try {
+        const results = await Promise.all([
+          getAuthStatus(),
+          getAllMembers()
+        ]);
+        user.current = results[0].data    // currentUser
+        memberList.current = results[1].data  // allMembersList]
+        setTimeout(() => setLoading(false), 750)
+      } catch (err)  {
+        console.log(err)
+        navigate('../login');
+        setLoading(false);
+      }  
+    }
+
+    apiCall();
   })
 
+  
   let display = (
     <div className="member-page">
-      <div> <Header user={userData.current}/></div>
+      <div> <Header user={user.current}/></div>
       <div className='sidebar'><Sidebar /></div>
-      <div className='member-control'><MemberControl memberList={membersList.current}/></div>
+      <div className='member-control'><MemberControl memberList={memberList.current}/></div>
 
     </div>    
     )
 
-  // Display is getAuthStatus is still verifying  
   if (loading) {
     display = (
     <div className="member-page-loading">
