@@ -34,7 +34,9 @@ export const MemberPage = () => {
   let display = (
     <div className="member-page">
       <div> <Header user={user.current}/></div>
+      <hr />
       <div className='sidebar'><Sidebar /></div>
+      <hr />
       <div className='member-control'><MemberControl memberList={memberList.current}/></div>
 
     </div>    

@@ -37,10 +37,10 @@ const createUser = asyncHandler(async (req, res) => {
 // @route PUT /api/users/:id
 // @access private
 const editUser = asyncHandler(async (req, res) => {
-  // if (!req.user) {
-  //   return res.sendStatus(401)
-  // }
-console.log("user returned: "+user)
+  if (!req.user) {
+    return res.sendStatus(401)
+  }
+
   const user = await User.findById(req.params.id)
   
   if (!user) {
@@ -53,9 +53,10 @@ console.log("user returned: "+user)
     req.body, 
     {new: true}
   )
-  
+
   res.status(200).json(updatedUser)
 })
+
 
 //@desc  Delete Specific User
 // @route Delete /api/users/:id

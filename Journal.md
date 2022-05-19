@@ -55,6 +55,8 @@
 
 #### 2022.05.18
 * 10:25 - I'm going to work on that newMemberForm and see if I can get it to populate after authentication
+* 13:41 - WIP on the newMemberForm. The form itself took awhile just to plug and play the fields. I'm stuck atm using the form to make a PUT request to the database. HTML forms cannot make PUT requests... trying to find a way to make it happen. 
+* 20:03 - Spend the entire afternoon trying to figure how to submit the editMemberForm with a PUT request. I was just about there for hours and hours. I just needed a event.preventDefault call at the top. I circled around that for quite a while.   I also learned there is a console setting to persist the console through a url redirect. That is really handy here!  I did manage to get my presentation outline complete as well. So I'm prepped for tomorrow. 
 
 
 

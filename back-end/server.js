@@ -16,7 +16,7 @@ const app = express()
 
 // Middleware for parsing request bodies
 app.use(express.json())
-app.use(express.urlencoded( {extended: false} ))
+app.use(express.urlencoded( {extended: true} ))
 app.use(cors({
   origin: ['http://localhost:3000'],
   credentials: true,

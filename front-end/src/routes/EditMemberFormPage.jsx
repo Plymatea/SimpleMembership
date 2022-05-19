@@ -1,13 +1,15 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { NewMemberForm } from "../components/index";
+import { EditMemberForm } from "../components/index";
 import { getAuthStatus } from "../utils/api";
 
 
-export const NewMemberFormPage = () => {
+export const EditMemberPage = () => {
   let navigate = useNavigate();
   const [loading, setLoading] = React.useState(true)
+
   const userData = React.useRef()
+ // Might have a problem returning the correct user here when multiple users are logged in. 
 
   React.useEffect(() => {
       getAuthStatus()  // api call and returns current user status
@@ -23,7 +25,7 @@ export const NewMemberFormPage = () => {
 
   let display = (
     <div className="classes-page">
-      <div> <NewMemberForm user={userData.current}/></div>
+      <div> <EditMemberForm user={userData.current}/></div>
       <h1>New Member Form </h1>
     </div>    
     )

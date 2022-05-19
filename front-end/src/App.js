@@ -1,6 +1,6 @@
 import './App.css';
 import { BrowserRouter as Router, Route, Routes} from 'react-router-dom'
-import { LoginPage, MemberPage, LandingPage, NewMemberFormPage } from './routes';
+import { LoginPage, MemberPage, LandingPage, EditMemberPage } from './routes';
 
 function App() {
   return (
@@ -20,8 +20,8 @@ function App() {
           element={ <MemberPage /> } 
         />  
         <Route 
-          path='/newmemberform' 
-          element={ <NewMemberFormPage /> } 
+          path='/editmemberform' 
+          element={ <EditMemberPage /> } 
         />       
       </Routes>
     </Router>
