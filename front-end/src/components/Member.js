@@ -8,6 +8,7 @@ export const Member = (props) => {
     {props.member.firstName} <br />
     {props.member.lastName} <br />
     {props.member.email} <br/>
+    <button onClick={() => props.setEditingUser(props.member)}> Edit </button> 
     <hr />
     </div>
   )

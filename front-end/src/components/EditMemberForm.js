@@ -70,7 +70,7 @@ export const EditMemberForm = (props) => {
         <input id="unlimited-membership" name="membershipStatus" value="unlimited" type="radio" />
         <label htmlFor="unlimited-membership">Unlimited Membership:</label>
         <br/>
-        <button className="btn btn-danger" type="submit">En Garde!!!</button>
+        <button className="btn btn-danger" type="submit">SAVE</button>
       </form>
     </div>
   )

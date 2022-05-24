@@ -11,6 +11,7 @@ export const MemberControl = (props) => {
         <Member 
           key={member._id}
           member={member}
+          setEditingUser={props.setEditingUser}
         />
       )}
       

@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { Header, Sidebar, MemberControl } from "../components/index";
+import { Header, Sidebar, MemberControl, EditMemberForm } from "../components/index";
 import { getAuthStatus, getAllMembers } from "../utils/api";
 import hamburger from "../assets/images/hamburger-1-lg.jpg"
 
@@ -9,6 +9,7 @@ export const MemberPage = () => {
   let navigate = useNavigate();
   const [loading, setLoading] = React.useState(true)
   const [user, setUser] = React.useState()
+  const [editingUser, setEditingUser] = React.useState()
   const [memberList, setMemberList] = React.useState()
   // const user = React.useRef()
   // const memberList = React.useRef()
@@ -40,11 +41,26 @@ export const MemberPage = () => {
       <hr />
       <div className='sidebar'><Sidebar /></div>
       <hr />
-      <div className='member-control'><MemberControl memberList={memberList}/></div>
+      <div className='member-control'><MemberControl memberList={memberList} setEditingUser={setEditingUser}/></div>
 
     </div>    
     )
-
+  
+  if (editingUser) {
+    display = (
+    <div className="member-page">
+      <div> <Header user={user}/></div>
+      <hr />
+      <div className='sidebar'><Sidebar /></div>
+      <hr />
+      <div className="edit-member-form">
+        <EditMemberForm user={editingUser}/>
+      </div> 
+    </div> 
+      
+      
+    )
+  }
   if (loading) {
     display = (
     <div className="member-page-loading">

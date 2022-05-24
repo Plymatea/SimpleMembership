@@ -26,7 +26,7 @@ export const EditMemberPage = () => {
   },[])
 
   let display = (
-    <div className="classes-page">
+    <div className="edit-member-form">
       <div> <EditMemberForm user={user}/></div>
       <h1>New Member Form </h1>
     </div>    
@@ -35,7 +35,7 @@ export const EditMemberPage = () => {
   // Display if getAuthStatus is still verifying  
   if (loading) {
     display = (
-    <div className="classes-page-loading">
+    <div className="edit-member-form-page-loading">
       <h1>Loading poste...</h1>
       <img src={hamburger} style={{width: "25%"}} className="" alt="logo" />
     </div>

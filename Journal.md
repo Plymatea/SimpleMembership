@@ -70,7 +70,8 @@
 #### 2022.05.24
 * 13:56 - My last notes said to implement multi level authentication.... This prob isn't the easiest path forward. IF that was there it would be one more thing to track and make sure continually works correctly throughout building out the rest of the application. It could easily break, which means I would need to test and verify it every step of the way.  Re-reading my notes from 5/17 it seems stripe integration might be the next thing. Once that is included, I can shore up the membership types withing the program. Verify users can correctly select memberships, verify it correctly transmits to stripe, etc etc.  Lets start there. 
 * 15:31 - Got the params right so that Discord will only ask the user to authorize the app on the first log in. Subsequent logins will auto redirect back to the application.  If the user was just created then they will be directed to the edit member form, otherwise directed to the member page.  I'm not happy with this flow, but it works for now.... Hopefully I learn something to fix this later. 
-
+* 15:37 - I wanted to note that I dug into the passport NPM modules and learned a fair bit.  I still don't 'fully' understand what is happening under the hood there, but i learned that passport has a authenticate() method that might be a lot better to ensure the backend api is protected. 
+* 16:20 - Added ability to edit members from the members page. Since implementing the auto redirect from authentication to /members I wanted a way to edit the member details. 
 
 
 
