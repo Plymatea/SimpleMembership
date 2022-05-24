@@ -4,6 +4,20 @@ import { putRequestMember } from "../utils/api";
 
 export const EditMemberForm = (props) => {
 
+  const onSubmit = (e) => {
+    e.preventDefault()
+    let editedUser = {}
+    for (let i=0; i<e.target.length; i++) {
+      // Name attributes must match casing of underlying database values
+      // firstName => firstName
+      // NOT first-name => firstName (no bueno)
+      editedUser[(e.target[i].name)] = e.target[i].value
+    }
+    editedUser.membershipStatus = e.target.membershipStatus.value   // Hacky boo
+    putRequestMember(editedUser._id, editedUser)
+    window.location.assign("/member");
+  }
+  
   return (
     <div className="new-member-form">
       <form onSubmit={onSubmit} method="POST">
@@ -43,17 +57,17 @@ export const EditMemberForm = (props) => {
         <input id="country" name="country" defaultValue={props?.user.country} type="text"/>
         <br/> */}
         <label htmlFor="hemaExpirationDate">HEMAA Membership Exp Date:</label>
-        <input id="hemaExpirationDate" name="hemaExpirationDate" defaultValue={props?.user.hemaExpirationDate.slice(0,10)} type="date"/>
+        <input id="hemaExpirationDate" name="hemaExpirationDate" defaultValue={props?.user.hemaExpirationDate?.slice(0,10)} type="date"/>
         <br/>
         <label htmlFor="membershipStatus">Membership Enrollment:</label>
         <br />
-        <input id="trial-membership" name="membershipStatus" value="trial" type="radio" defaultChecked/>
+        <input id="trial-membership" name="membershipStatus" value="trial" type="radio" />
         <label htmlFor="trial-membership">Trial Membership:</label>
         <br />
-        <input id="part-time-membership" name="membershipStatus" value="part-time" type="radio"/>
+        <input id="part-time-membership" name="membershipStatus" value="part-time" type="radio" />
         <label htmlFor="part-time-membership">Part Time Membership:</label>
         <br />
-        <input id="unlimited-membership" name="membershipStatus" value="unlimited" type="radio"/>
+        <input id="unlimited-membership" name="membershipStatus" value="unlimited" type="radio" />
         <label htmlFor="unlimited-membership">Unlimited Membership:</label>
         <br/>
         <button className="btn btn-danger" type="submit">En Garde!!!</button>
@@ -62,19 +76,7 @@ export const EditMemberForm = (props) => {
   )
 }
 
-const onSubmit = (e) => {
-  e.preventDefault()
-  let editedUser = {}
-  for (let i=0; i<e.target.length; i++) {
-    // Name attributes must match casing of underlying database values
-    // firstName => firstName
-    // NOT first-name => firstName (no bueno)
-    editedUser[(e.target[i].name)] = e.target[i].value
-  }
-  editedUser.membershipStatus = e.target.membershipStatus.value   // Hacky boo
-  putRequestMember(editedUser._id, editedUser)
-  window.location.assign("/member");
-}
+
 
   // The below fetch method works, and I want to save it, but it doesn't make it through the authorization check on the back end. 
 

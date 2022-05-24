@@ -4,8 +4,10 @@ export const Member = (props) => {
   return (
     <div className="member">
       <h5>member component</h5>
-    {props.email} <br/>
-    {props._id}
+    {props.member._id} <br />
+    {props.member.firstName} <br />
+    {props.member.lastName} <br />
+    {props.member.email} <br/>
     <hr />
     </div>
   )

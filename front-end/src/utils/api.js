@@ -13,7 +13,7 @@ export const getAllMembers = () =>
 export const createRequestMember = (id, user) =>
   axios.put(`http://localhost:5000/api/user/${id}`, user, CREDENTIALS)
   
-export const putRequestMember = (id, user) =>
+export const putRequestMember = (id, user) => 
   axios.put(`http://localhost:5000/api/user/${id}`, user, CREDENTIALS)
 
 export const deleteRequestMember = (id) =>

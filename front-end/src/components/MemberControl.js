@@ -9,9 +9,8 @@ export const MemberControl = (props) => {
       <hr />
       {props.memberList.map((member) =>
         <Member 
-          email={member.email}
           key={member._id}
-          _id={member._id}
+          member={member}
         />
       )}
       

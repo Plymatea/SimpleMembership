@@ -31,18 +31,22 @@ const UserSchema = new mongoose.Schema(
       type: String,
       validate: {
         validator: function(v) {
-          return /\d{3}-\d{3}-\d{4}/.test(v);
+          // return /\d{3}-\d{3}-\d{4}/.test(v);
+          return (((/(\+\d{1,3}\s?)?((\(\d{3}\)\s?)|(\d{3})(\s|-?))(\d{3}(\s|-?))(\d{4})(\s?(([E|e]xt[:|.|]?)|x|X)(\s?\d+))?/g
+          ).test(v)) || v == "");
         },
-        message: props => `${props.value} is not a valid phone number!`
+        message: props => `${props.value} is not a valid phone number. 123-456-7890 ex`
       },
     },
     mobilePhoneNumber: {
       type: String,
       validate: {
         validator: function(v) {
-          return /\d{3}-\d{3}-\d{4}/.test(v);
+          // return /\d{3}-\d{3}-\d{4}/.test(v);
+          return (((/(\+\d{1,3}\s?)?((\(\d{3}\)\s?)|(\d{3})(\s|-?))(\d{3}(\s|-?))(\d{4})(\s?(([E|e]xt[:|.|]?)|x|X)(\s?\d+))?/g
+          ).test(v)) || v == "");
         },
-        message: props => `${props.value} is not a valid phone number!`
+        message: props => `${props.value} is not a valid phone number. 123-456-7890 ex`
       },
     },
     //  Mailing address copied from Name. I want to test the set feature first. 

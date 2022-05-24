@@ -1,7 +1,7 @@
+const { request } = require('express')
 const asyncHandler = require ('express-async-handler')
 
 const User = require('../models/userModel')
-
 
 //@desc  Get Users
 // @route GET /api/users
@@ -40,21 +40,24 @@ const editUser = asyncHandler(async (req, res) => {
   if (!req.user) {
     return res.sendStatus(401)
   }
-
   const user = await User.findById(req.params.id)
-  
   if (!user) {
     res.status(400)
     throw new Error('User not found');
   }
-
-  const updatedUser = await User.findByIdAndUpdate(
-    req.params.id, 
-    req.body, 
-    {new: true}
-  )
-
-  res.status(200).json(updatedUser)
+  console.log("User Found in PUT Request")
+  try {
+    const updatedUser = await User.findByIdAndUpdate(
+      req.params.id, 
+      req.body, 
+      {new: true, runValidators: true}
+    )
+    console.log("User after update!")
+  
+    res.status(200).json(updatedUser)
+  } catch (e) {
+    console.log(e.message)
+  }
 })
 
 

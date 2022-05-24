@@ -100,7 +100,7 @@
 * [Component Tree Map](./front-end/public/mermaid-diagram-20220429162821.png)
 * _Created using [Mermaid Live](mermaid.live)_
 * _Mermaid code below:_
-```
+```mermaid
 graph TD
     a([App]) 
         a-->a.a[Style Header]

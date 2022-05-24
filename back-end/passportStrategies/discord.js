@@ -1,6 +1,6 @@
 
 const passport = require('passport')
-const { Strategy } = require('passport-discord')
+const  DiscordStrategy = require('passport-discord').Strategy
 const User = require('../models/userModel')
 
 passport.serializeUser((user, done) => {
@@ -11,7 +11,6 @@ passport.serializeUser((user, done) => {
 
 passport.deserializeUser(async (id, done) => {
   console.log("DE-serializing user")
-  console.log(id)
   try {
     const userDB = await User.findOne({ id })
     console.log(userDB.id)
@@ -24,7 +23,7 @@ passport.deserializeUser(async (id, done) => {
 
 
 passport.use(
-  new Strategy(
+  new DiscordStrategy(
     {
       clientID: process.env.DISCORD_CLIENT_ID,
       clientSecret: process.env.DISCORD_CLIENT_SECRET,

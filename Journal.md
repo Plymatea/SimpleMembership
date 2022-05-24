@@ -57,6 +57,21 @@
 * 10:25 - I'm going to work on that newMemberForm and see if I can get it to populate after authentication
 * 13:41 - WIP on the newMemberForm. The form itself took awhile just to plug and play the fields. I'm stuck atm using the form to make a PUT request to the database. HTML forms cannot make PUT requests... trying to find a way to make it happen. 
 * 20:03 - Spend the entire afternoon trying to figure how to submit the editMemberForm with a PUT request. I was just about there for hours and hours. I just needed a event.preventDefault call at the top. I circled around that for quite a while.   I also learned there is a console setting to persist the console through a url redirect. That is really handy here!  I did manage to get my presentation outline complete as well. So I'm prepped for tomorrow. 
+* SometimeLate - I ended up refactoring the api calls, committing it, causing and infinite re-render loop somehow. Couldn't figure it out, so i went down a rabbit hole of reverting and resetting my git commit history.  This caused me to not trust what I had so I deleted the entire project locally and cloning it down from the repo. Realized I wa missing my entire .env file and had to reconstruct it.... This led me to connecting to a "test" database in mongoDB instead of the "simple-membership" database.... FML.  I spend a lot of time trying to figure it out and gave up after midnight.  The project works, I just don't like it in the test database. 
+
+#### 2022.05.19
+* 8:58 - So within about 10 minutes this morning i realized my MONGO_URI did not specify a database. So adding one in the middle of the URI, at the intended space, worked perfect. The simple things. 
+* 10:45 - Need to look at where mongo is creating the collections. I figured out the database name, need to figure out the collections. The user scheme is where the user collection comes from but what about the sessions collections. and how does a user get entered? Is it through passport? 
+        * Notes from Capstones:
+                * Tiffany has a great header and sidebar I want to steal. She also has a cool dialog box popup that I want to steal as well!
+                * Eric Crudup transformed css div into a a racecar! 
+* 16:30 - Just some thoughts. I want to implement multi-level authentication next. Get the mailing address and Name to combine from smaller key-values. https://www.mongodb.com/docs/manual/reference/method/#std-label-role-management-methods
+
+#### 2022.05.24
+* 13:56 - My last notes said to implement multi level authentication.... This prob isn't the easiest path forward. IF that was there it would be one more thing to track and make sure continually works correctly throughout building out the rest of the application. It could easily break, which means I would need to test and verify it every step of the way.  Re-reading my notes from 5/17 it seems stripe integration might be the next thing. Once that is included, I can shore up the membership types withing the program. Verify users can correctly select memberships, verify it correctly transmits to stripe, etc etc.  Lets start there. 
+* 15:31 - Got the params right so that Discord will only ask the user to authorize the app on the first log in. Subsequent logins will auto redirect back to the application.  If the user was just created then they will be directed to the edit member form, otherwise directed to the member page.  I'm not happy with this flow, but it works for now.... Hopefully I learn something to fix this later. 
+
+
 
 
 
