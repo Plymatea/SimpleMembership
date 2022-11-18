@@ -31,7 +31,7 @@
 
 ## Component Map
 
-![Simple Membership Component Tree](front-end\public\mermaid-diagram-20220429162821.png "Component Map")
+![Simple Membership Component Tree](https://github.com/Plymatea/SimpleMembership/blob/295f2463390f96cf20e66a65cc5d57105b72e4c3/front-end/public/mermaid-diagram-20220429162821.png "Component Map")
 * The component map may be out of date - AP 11/22
 
 
