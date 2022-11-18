@@ -16,92 +16,28 @@
 
 ## Description
 
-_[Lorum Ipsum]_
+* _Simple Membership is a simple way to track membership information and membership status within a small hobby groups or businesses. Many small groups utilize excel to keep this information, but excel has many pain points for this work such as: authentication, selective hidden information, no error handling. Simple membership looks to bring the simplicity of an excel tracking sheet and combine it with the structure, and ease, of a web app._
 
 ## Setup/Installation Requirements
 * _Requires VSCode_
 
-* _You can find the github repository [here]([lorum ispum])_
+* _You can find the github repository [Simple Membership](https://github.com/Plymatea/SimpleMembership.git)_
 * _In your preferred terminal, navigate to the directory you would like to store the project_
-* _$ `git clone [lorum ispum]`_
+* _$ `git clone https://github.com/Plymatea/SimpleMembership.git`_
 * _Now that the repository is cloned to your computer, right click on the folder and click "open with vs code"_
-* _Navigate your terminal to the project folder and run $ `npm start` to start the development server. 
+* _You will need to create an .env file in /back-end_
+* _The .env file will need the following MONGO_URI, EXPRESS_SESSION_SECRET, DISCORD_CLIENT_ID, DISCORD_CLIENT_SECRET, DISCORD_CALLBACK_URL (You will need to create a mongoDb database and a discord app to receive all these)_
+* _$ `npm run start` in both the `/back-end` and the `/front-end` folders_
 
 ## Component Map
 
-![Simple Membership Component Tree](public\ComponentMap.png "Component Map")
+![Simple Membership Component Tree](front-end\public\mermaid-diagram-20220429162821.png "Component Map")
+* The component map may be out of date - AP 11/22
 
-
-## Create React App documentation
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
 ### Deployment
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
 
 ## Known Bugs
@@ -110,7 +46,24 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 ## Road Map
 
-* _[lorum ispum]_
+* _Additional Authentication methods_
+  * _Google_
+  * _Facebook_
+* _Security Classes_
+  * _User class_
+  * _Admin class_
+* _Memberships_
+  * _Ability to add custom membership types_
+* _Payments_
+  * _Integrate with Stripe for payments_
+  * _Handle record keeping of payments_
+* _Reports_
+  * _Various reports on financial and memberships_
+* _Classes_
+  * _Ability to add custom classes, with instructor, and times_
+  * _Sign in members to specific classes_
+* _Members_ 
+  * _Ability to upload documents to a specific member profile_
 
 
 ## License - [MIT](https://opensource.org/licenses/MIT)
