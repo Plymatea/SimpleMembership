@@ -42,7 +42,9 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 ## Known Bugs
 
-* _No Known Bugs_
+* _discordID, googleID, and email fields are all set to unique. If data is fed inconsistently, users will receive error when trying to log in_
+  * _potential fix: remove update of existing user fields at log in_
+* _if user is deleted from database, and user has a session cookie on local, then error will be thrown when trying to log in_
 
 ## Road Map
 
