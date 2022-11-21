@@ -34,7 +34,11 @@ passport.use(
       console.log(profile)
       const { emails, id, name } = profile
       try {
-        const userDB = await User.findOne({ googleID: id });
+        const params = { $or:[ 
+          {email: emails[0].value }, 
+          { googleID: id }
+        ]}
+        const userDB = await User.findOne(params);
         if (!userDB) {
           const newUser = await User.create({ 
             email: emails[0].value, 
@@ -45,6 +49,18 @@ passport.use(
           return done(null, newUser)
         }
         console.log('user found!!!!!'.bgBlue)
+        if (!userDB.googleID || !userDB.firstName || !userDB.lastName || !userDB.email) {
+          const updates = {
+            email: userDB.email || emails[0].value,
+            googleID: userDB.googleID || id,
+            firstName: userDB.firstName || name.givenName,
+            lastName: name.familyName || name.familyName
+          }
+          const options = {
+            returnDocument:"after"
+          }
+          const res = await User.findByIdAndUpdate(userDB.id, updates, options)
+        }
         return done(null, userDB)
       } catch (err) {
         return done(err, null)

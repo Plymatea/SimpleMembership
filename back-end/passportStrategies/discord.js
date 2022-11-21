@@ -34,12 +34,26 @@ passport.use(
       console.log(profile)
       const { email, id } = profile
       try {
-        const userDB = await User.findOne({ discordID: id });
+        const params = { $or:[ 
+          { email: email }, 
+          { discordID: id }
+        ]}
+        const userDB = await User.findOne(params);
         if (!userDB) {
           const newUser = await User.create({ email: email, discordID: id })
           return done(null, newUser)
         }
         console.log('user found!!!!!'.bgBlue)
+        if (!userDB.discordID || !userDB.email) {
+          const updates = {
+            email: userDB.email || email,
+            discordID: userDB.discordID || id,
+          }
+          const options = {
+            returnDocument:"after"
+          }
+          const res = await User.findByIdAndUpdate(userDB.id, updates, options)
+        }
         return done(null, userDB)
       } catch (err) {
         return done(err, null)
