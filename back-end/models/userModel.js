@@ -10,7 +10,12 @@ const UserSchema = new mongoose.Schema(
     },
     discordID: {
       type: String,
-      required: true,
+      required: false,
+      unique: true,
+    },
+    googleID: {
+      type: String,
+      required: false,
       unique: true,
     },
     name: {

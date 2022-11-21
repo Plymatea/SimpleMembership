@@ -7,6 +7,9 @@ export const LoginPage = () => {
       <button onClick={() => (window.location.href = 'http://localhost:5000/api/auth/discord')}>
         Login with Discord
       </button>
+      <button onClick={() => (window.location.href = 'http://localhost:5000/api/auth/google')}>
+        Login with Google
+      </button>
     </div>
   )
 };

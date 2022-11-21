@@ -1,6 +1,6 @@
 
 const passport = require('passport')
-const  DiscordStrategy = require('passport-discord').Strategy
+const  GoogleStrategy = require('passport-google-oauth20').Strategy
 const User = require('../models/userModel')
 
 passport.serializeUser((user, done) => {
@@ -23,20 +23,25 @@ passport.deserializeUser(async (id, done) => {
 
 
 passport.use(
-  new DiscordStrategy(
+  new GoogleStrategy(
     {
-      clientID: process.env.DISCORD_CLIENT_ID,
-      clientSecret: process.env.DISCORD_CLIENT_SECRET,
-      callbackURL: process.env.AUTH_CALLBACK_URL || process.env.DISCORD_CALLBACK_URL,
-      scope: ["email", "identify"],
+      clientID: process.env.GOOGLE_CLIENT_ID,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+      callbackURL: process.env.AUTH_CALLBACK_URL || process.env.GOOGLE_CALLBACK_URL,
+      scope: ["email", "profile"],
     },
     async (accessToken, refreshToken, profile, done) => {
       console.log(profile)
-      const { email, id } = profile
+      const { emails, id, name } = profile
       try {
-        const userDB = await User.findOne({ discordID: id });
+        const userDB = await User.findOne({ googleID: id });
         if (!userDB) {
-          const newUser = await User.create({ email: email, discordID: id })
+          const newUser = await User.create({ 
+            email: emails[0].value, 
+            googleID: id,  
+            firstName: name.givenName, 
+            lastName: name.familyName
+          })
           return done(null, newUser)
         }
         console.log('user found!!!!!'.bgBlue)

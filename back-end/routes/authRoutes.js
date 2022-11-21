@@ -2,6 +2,16 @@ const express = require('express')
 const router  = express.Router()
 const passport = require('passport')
 
+// Below function to DRY up CODE below if it works right
+
+// function NewlyCreatedUser(res) {
+//   if (res.req.user.createdAt === res.req.user.updatedAt) {
+//     res.redirect('http://localhost:3000/editmemberform')
+//   } else {
+//     res.redirect('http://localhost:3000/member')
+//   }
+// }
+
 //  /api/auth/status
 
 router.get("/status", (req, res) => {
@@ -21,5 +31,15 @@ router.get("/discord/redirect", passport.authenticate('discord'), (req, res) => 
   }
 });
 
+//  /api/auth/google
+router.get("/google", passport.authenticate('google', { scope: [ "email", "profile"] }));
+
+router.get("/google/redirect", passport.authenticate('google'), (req, res) => {
+  if (res.req.user.createdAt === res.req.user.updatedAt) {
+    res.redirect('http://localhost:3000/editmemberform')
+  } else {
+    res.redirect('http://localhost:3000/member')
+  }
+});
 
 module.exports = router

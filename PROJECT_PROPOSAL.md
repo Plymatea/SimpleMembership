@@ -138,5 +138,3 @@ graph TD
                 a.e.c-->a.e.c.b
                 a.e.c-->a.e.c.c
 ```
-### Is there anything else you'd like your instructor to know?
-* _N/A_

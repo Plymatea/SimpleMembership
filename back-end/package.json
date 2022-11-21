@@ -12,7 +12,8 @@
     "express-session": "^1.17.2",
     "mongoose": "^6.3.2",
     "passport": "^0.6.0",
-    "passport-discord": "^0.1.4"
+    "passport-discord": "^0.1.4",
+    "passport-google-oauth20": "^2.0.0"
   },
   "scripts": {
     "start": "node ./server.js",
