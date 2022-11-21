@@ -1,28 +1,9 @@
-
 const passport = require('passport')
 const  GoogleStrategy = require('passport-google-oauth20').Strategy
 const User = require('../models/userModel')
 
-passport.serializeUser((user, done) => {
-  console.log("serializing user")
-  console.log(user)
-  done(null, user._id)
-})
-
-passport.deserializeUser(async (id, done) => {
-  console.log("DE-serializing user")
-  try {
-    const userDB = await User.findOne({ id })
-    console.log(userDB.id)
-    return userDB ? done(null, userDB) : done(null, null)
-  } catch (err) {
-    console.log(err)
-    return done(err, null)
-  }
-})
-
-
-passport.use(
+const passportGoogle = () => {
+  passport.use(
   new GoogleStrategy(
     {
       clientID: process.env.GOOGLE_CLIENT_ID,
@@ -67,4 +48,6 @@ passport.use(
       }
     }
   )
-);
+)};
+
+module.exports = passportGoogle()
