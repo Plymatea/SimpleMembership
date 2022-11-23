@@ -73,6 +73,11 @@
 * 15:37 - I wanted to note that I dug into the passport NPM modules and learned a fair bit.  I still don't 'fully' understand what is happening under the hood there, but i learned that passport has a authenticate() method that might be a lot better to ensure the backend api is protected. 
 * 16:20 - Added ability to edit members from the members page. Since implementing the auto redirect from authentication to /members I wanted a way to edit the member details. 
 
+#### 2022.11.23
+* This journal was used for the epicodus capstone review, but I thought it would be to continue here. It'll be less "formal" with timestamps and more like an actual journal written in sporadically. 
+* The long time between the last post and this one was due to,  ta-da!, not working on it. After epicodus, I had a very full summer and wasn't ready to sit down and work on this. I spent the summer focusing on my HEMA club as well as enjoying the summer. Summer is now over and I wanted to get to back to this project. Not only to add it as a shining portfolio piece, but because I want to finish it and use it within my HEMA club. Possible extend it's use to other local clubs as well. 
+* Couple days ago I reacquainted myself with the project and included the google authentication method. Interestingly, I spent a lot of time looking up basic stuff to shake off the rust. Today I'm looking to include the facebook auth method and expect it to go fairly easy.
+* I expect to continue shaking the 'rust' off basic skills I've forgotten. As I progress I'll be using the readme as a road map and keep my future implementation ideas there.
 
 
 
