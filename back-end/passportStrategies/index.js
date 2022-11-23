@@ -2,6 +2,7 @@ const passport = require('passport')
 const User = require('../models/userModel')
 require('./discord')
 require('./google')
+require('./facebook')
 
 passport.serializeUser((user, done) => {
   console.log("serializing user")
