@@ -18,6 +18,11 @@ const UserSchema = new mongoose.Schema(
       required: false,
       unique: true,
     },
+    facebookID: {
+      type: String,
+      required: false,
+      unique: true,
+    },
     name: {
       type: String,
       uppercase: true,
