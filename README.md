@@ -48,9 +48,6 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 ## Road Map
 
-* _Additional Authentication methods_
-  * _Google_
-  * _Facebook_
 * _Security Classes_
   * _User class_
   * _Admin class_
