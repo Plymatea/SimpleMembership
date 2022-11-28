@@ -1,11 +1,11 @@
 import './App.css';
-import { BrowserRouter as Router, Route, Routes} from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import { LoginPage, MemberPage, LandingPage, EditMemberPage } from './routes';
 
 function App() {
   return (
     <Router>
-      <Routes>
+      <Switch>
         <Route 
           path='/' 
           element={<LandingPage />} 
@@ -23,9 +23,10 @@ function App() {
           path='/editmemberform' 
           element={ <EditMemberPage /> } 
         />       
-      </Routes>
+      </Switch>
     </Router>
   );
 }
 
 export default App;
+ 
