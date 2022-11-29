@@ -45,15 +45,12 @@ const editUser = asyncHandler(async (req, res) => {
     res.status(400)
     throw new Error('User not found');
   }
-  console.log("User Found in PUT Request")
   try {
     const updatedUser = await User.findByIdAndUpdate(
       req.params.id, 
       req.body, 
       {new: true, runValidators: true}
-    )
-    console.log("User after update!")
-  
+    )  
     res.status(200).json(updatedUser)
   } catch (e) {
     console.log(e.message)
