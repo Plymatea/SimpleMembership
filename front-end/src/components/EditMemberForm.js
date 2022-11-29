@@ -13,7 +13,6 @@ export const EditMemberForm = (props) => {
       // NOT first-name => firstName (no bueno)
       editedUser[(e.target[i].name)] = e.target[i].value
     }
-    // editedUser.subscriptions = e.target.subscriptions.value   // Hacky boo
     putRequestMember(editedUser._id, editedUser)
     window.location.assign("/member");
   }
@@ -68,24 +67,3 @@ export const EditMemberForm = (props) => {
     </div>
   )
 }
-
-
-
-  // The below fetch method works, and I want to save it, but it doesn't make it through the authorization check on the back end. 
-
-  // const URL = "http://localhost:5000/api/user/"
-  // const putRequest = async (data) => {
-  //   await fetch(URL+data._id, {
-  //     // Header for content-type in body must match expected value for data.
-  //     headers: { "Content-Type": "application/json" },
-  //     method: "PUT",
-  //     body: JSON.stringify(data)
-  //   })
-  //   .then(resp => {
-  //     console.log(resp);
-  //   })
-  //   .catch(err => {
-  //     console.log(err);
-  //   })
-  // }
-  // putRequest(editedUser)
