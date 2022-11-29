@@ -1,8 +1,18 @@
 const mongoose = require('mongoose')
-console.log("###### reminder that the mailing address needs to be fixed here. usermodel.js")
+
+const VIRTUALS = {
+  virtuals: {
+    fullName: {
+      get() {
+        return this.name.firstName + ' ' + this.name.lastName;
+      }
+    }
+  }
+}
+
 const UserSchema = new mongoose.Schema(
   { 
-  email: {
+    email: {
       type: String,
       lowercase: true,
       required: true,
@@ -10,34 +20,28 @@ const UserSchema = new mongoose.Schema(
     },
     discordID: {
       type: String,
-      required: false,
       unique: true,
     },
     googleID: {
       type: String,
-      required: false,
       unique: true,
     },
     facebookID: {
       type: String,
-      required: false,
       unique: true,
     },
     name: {
-      type: String,
-      uppercase: true,
-      set: () => Object.defineProperty(this, 'name', {
-        value: this.firstName + " " + this.lastName,
-        writable: true,
+      firstName: String,
+      lastName: String,
+    },
+    fullName: {   //Doesn't work
+      type: String, 
+      set: () => Object.defineProperty(this, 'fullName', {
+        value: (this.name.firstName + ' ' + this.name.lastName),
+        writeable: true,
       }),
     },
-    firstName: {
-      type: String,
-    },
-    lastName: {
-      type: String,
-    },
-    homePhoneNumber: {
+    phoneNumber: {
       type: String,
       validate: {
         validator: function(v) {
@@ -48,65 +52,38 @@ const UserSchema = new mongoose.Schema(
         message: props => `${props.value} is not a valid phone number. 123-456-7890 ex`
       },
     },
-    mobilePhoneNumber: {
-      type: String,
-      validate: {
-        validator: function(v) {
-          // return /\d{3}-\d{3}-\d{4}/.test(v);
-          return (((/(\+\d{1,3}\s?)?((\(\d{3}\)\s?)|(\d{3})(\s|-?))(\d{3}(\s|-?))(\d{4})(\s?(([E|e]xt[:|.|]?)|x|X)(\s?\d+))?/g
-          ).test(v)) || v == "");
-        },
-        message: props => `${props.value} is not a valid phone number. 123-456-7890 ex`
-      },
-    },
-    //  Mailing address copied from Name. I want to test the set feature first. 
     mailingAddress: { 
-      type: String,
-      set: () => Object.defineProperty(this, 'name', {
-        value: this.firstName + " " + this.lastName,
-        writable: true,
-      }),
+      addressLine1: String, 
+      addressLine2: String,
+      city: String,
+      state: String,
+      zipCode: String,
+      country: String,
     },
     waiver: {
       signed: {
         type: Boolean,
         default: false,
       },
-      dateSigned: {
-        type: Date,
-      }
+      dateSigned: Date,
     },
-    membershipStatus: {
-      type: String,
-      default: "Trial"
-    },
+    subscriptions: String,
     hemaExpirationDate: {
       type: Date,
       min: mongoose.now
     },
   }, 
+  // VIRTUALS, 
   {timestamps: true}
 )
 
-// const customerSchema = new mongoose.Schema(
-//   {
-//     stripeId: {
-//       type: String,
-//       required: false
-//     }
-//   },
-//   {
-//     subscriptionID: {
-//       type: String,
-//       required: false
-//     }
-//   },
-//   {
-//     subscriptionDate: {
-//       type: String,
-//       required: false
-//     }
-//   },
-// )
+// UserSchema.virtual('fullName')
+//   get(function() {
+//     return this.name.first + ' ' + this.name.last;
+//   }).
+//   set(function(v) {
+//     this.name.first = v.substr(0, v.indexOf(' '));
+//     this.name.last = v.substr(v.indexOf(' ') + 1);
+//   });
 
 module.exports = mongoose.model('User', UserSchema)

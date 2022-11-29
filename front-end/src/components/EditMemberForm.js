@@ -13,7 +13,7 @@ export const EditMemberForm = (props) => {
       // NOT first-name => firstName (no bueno)
       editedUser[(e.target[i].name)] = e.target[i].value
     }
-    editedUser.membershipStatus = e.target.membershipStatus.value   // Hacky boo
+    // editedUser.subscriptions = e.target.subscriptions.value   // Hacky boo
     putRequestMember(editedUser._id, editedUser)
     window.location.assign("/member");
   }
@@ -22,53 +22,48 @@ export const EditMemberForm = (props) => {
     <div className="new-member-form">
       <form onSubmit={onSubmit} method="POST">
         <label htmlFor="email">Email:</label>
+        <div>{console.log(props.user.fullName)}</div>
+
         <input id="_id" name="_id" type="hidden" defaultValue={props?.user._id}/>
 
         <input id="email" name="email" type="email" defaultValue={props?.user.email}/>
         <br/>
         <label htmlFor="firstName">First Name:</label>
-        <input id="firstName" name="firstName" defaultValue={props?.user.firstName} type="text"/>
+        <input id="firstName" name="name.firstName" defaultValue={props?.user.name?.firstName} type="text"/>
         <br/>
         <label htmlFor="lastName">Last Name:</label>
-        <input id="lastName" name="lastName" defaultValue={props?.user.lastName} type="text"/>
+        <input id="lastName" name="name.lastName" defaultValue={props?.user.name?.lastName} type="text"/>
         <br/>
-        <label htmlFor="homePhoneNumber">Home Phone Number:</label>
-        <input id="homePhoneNumber" name="homePhoneNumber" defaultValue={props?.user.homePhoneNumber} type="tel"/>
+        <label htmlFor="phoneNumber">Phone Number:</label>
+        <input id="phoneNumber" name="phoneNumber" defaultValue={props?.user.phoneNumber} type="tel"/>
         <br/>
-        <label htmlFor="mobilePhoneNumber">Mobile Phone Number:</label>
-        <input id="mobilePhoneNumber" name="mobilePhoneNumber" defaultValue={props?.user.mobilePhoneNumber} type="tel"/>
+        <label htmlFor="addressLine1">Mailing Address 1:</label>
+        <input id="addressLine1" name="mailingAddress.addressLine1" defaultValue={props?.user.mailingAddress?.addressLine1} type="text"/>
         <br/>
-        {/* <label htmlFor="address-line1">Mailing Address 1:</label>
-        <input id="address-line1" name="address-line1" defaultValue={props?.user.addressLine1} type="text"/>
-        <br/>
-        <label htmlFor="address-line2">Mailing Address 2:</label>
-        <input id="address-line2" name="address-line2" defaultValue={props?.user.addressLine2} type="text"/>
+        <label htmlFor="addressLine2">Mailing Address 2:</label>
+        <input id="addressLine2" name="mailingAddress.addressLine2" defaultValue={props?.user.mailingAddress?.addressLine2} type="text"/>
         <br/>
         <label htmlFor="city">City:</label>
-        <input id="city" name="city" defaultValue={props?.user.city} type="text"/>
+        <input id="city" name="mailingAddress.city" defaultValue={props?.user.mailingAddress?.city} type="text"/>
         <br/>
         <label htmlFor="state">State:</label>
-        <input id="state" name="state" defaultValue={props?.user.state} type="text"/>
+        <input id="state" name="mailingAddress.state" defaultValue={props?.user.mailingAddress?.state} type="text"/>
         <br/>
-        <label htmlFor="zip-code">Zip Code:</label>
-        <input id="zip-code" name="zip-code" defaultValue={props?.user.zipCode} type="text"/>
+        <label htmlFor="zipCode">Zip Code:</label>
+        <input id="zipCode" name="mailingAddress.zipCode" defaultValue={props?.user.mailingAddress?.zipCode} type="text"/>
         <br/>
         <label htmlFor="country">Country:</label>
-        <input id="country" name="country" defaultValue={props?.user.country} type="text"/>
-        <br/> */}
+        <input id="country" name="mailingAddress.country" defaultValue={props?.user.mailingAddress?.country} type="text"/>
+        <br/>
         <label htmlFor="hemaExpirationDate">HEMAA Membership Exp Date:</label>
         <input id="hemaExpirationDate" name="hemaExpirationDate" defaultValue={props?.user.hemaExpirationDate?.slice(0,10)} type="date"/>
         <br/>
-        <label htmlFor="membershipStatus">Membership Enrollment:</label>
-        <br />
-        <input id="trial-membership" name="membershipStatus" value="trial" type="radio" />
-        <label htmlFor="trial-membership">Trial Membership:</label>
-        <br />
-        <input id="part-time-membership" name="membershipStatus" value="part-time" type="radio" />
-        <label htmlFor="part-time-membership">Part Time Membership:</label>
-        <br />
-        <input id="unlimited-membership" name="membershipStatus" value="unlimited" type="radio" />
-        <label htmlFor="unlimited-membership">Unlimited Membership:</label>
+        <label htmlFor="subscriptions">Membership Enrollment:</label>
+        <select name="subscriptions" id="subscriptions" defaultValue={props?.user.subscriptions}>
+          <option value="trial">Trial</option>
+          <option value="part-time">Part Time</option>
+          <option value="unlimited">Unlimited</option>
+        </select>
         <br/>
         <button className="btn btn-danger" type="submit">SAVE</button>
       </form>
