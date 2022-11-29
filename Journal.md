@@ -80,7 +80,14 @@
 * I expect to continue shaking the 'rust' off basic skills I've forgotten. As I progress I'll be using the readme as a road map and keep my future implementation ideas there.
 * Alright, got the facebook auth method working. Had some small issues getting the right scope lined up with the facebook app. Got it working though.
 * I might tackle the stripe integration next. Not sure how stripe will want info to charge cards, will the membership types be hosted on stripe or will I simply pass a $$ amount to stripe. Yeah Stripe next. 
+* Might want to update require statements to newer import statements... 
 
-
-
-
+#### 2022.11.28
+* The authentication check to view pages, and access API routes on the backend get called a lot. Like every time. I wonder if there is a way to decrease the number of times this needs to be called. 
+    * Maybe accomplish this through a custom middleware function
+* Today was a bit frustrating. I set out to integrate stripe into the program and went down a rabbit hole. I updated the userModel and cleaned it up a bit. Added in mailing address to the schema as well as the input form. 
+    * I'm struggling to set a fullName prop from the firstName and lastName only. 
+    * Read about the mongoose virtual props and got that to work, but it's not getting passed through into the front end react properties. Only managed to get it to print in the console. 
+    * I've tried setting the prop directly, setting it as a virtual (two different ways), also tried changing the JSON middleware to include "virtuals", but that completely broke everything. 
+    * UPDATE: Got IT. When creating the schema, I needed to set options to retrieve virtuals when converting to JSON. I saw this before, but thought I needed in the middleware instead of the schema creation.  Yeah!
+* I'd like to break the Discord, Google, and Facebook IDs into their own schema. As well as the subscriptions, and mailing addresses. 
