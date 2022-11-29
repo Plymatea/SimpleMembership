@@ -1,13 +1,15 @@
 const mongoose = require('mongoose')
 
-const VIRTUALS = {
+const OPTIONS = {
   virtuals: {
     fullName: {
       get() {
         return this.name.firstName + ' ' + this.name.lastName;
       }
     }
-  }
+  },
+  toJSON: { virtuals: true }, // So `res.json()` and other `JSON.stringify()` functions include virtuals
+  toObject: { virtuals: true }
 }
 
 const UserSchema = new mongoose.Schema(
@@ -33,13 +35,6 @@ const UserSchema = new mongoose.Schema(
     name: {
       firstName: String,
       lastName: String,
-    },
-    fullName: {   //Doesn't work
-      type: String, 
-      set: () => Object.defineProperty(this, 'fullName', {
-        value: (this.name.firstName + ' ' + this.name.lastName),
-        writeable: true,
-      }),
     },
     phoneNumber: {
       type: String,
@@ -73,17 +68,8 @@ const UserSchema = new mongoose.Schema(
       min: mongoose.now
     },
   }, 
-  // VIRTUALS, 
+  OPTIONS, 
   {timestamps: true}
 )
-
-// UserSchema.virtual('fullName')
-//   get(function() {
-//     return this.name.first + ' ' + this.name.last;
-//   }).
-//   set(function(v) {
-//     this.name.first = v.substr(0, v.indexOf(' '));
-//     this.name.last = v.substr(v.indexOf(' ') + 1);
-//   });
 
 module.exports = mongoose.model('User', UserSchema)

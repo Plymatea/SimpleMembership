@@ -5,8 +5,7 @@ export const Member = (props) => {
     <div className="member">
       <h5>member component</h5>
     {props.member._id} <br />
-    {props.member.firstName} <br />
-    {props.member.lastName} <br />
+    {props.member.fullName} <br />
     {props.member.email} <br/>
     <button onClick={() => props.setEditingUser(props.member)}> Edit </button> 
     <hr />

@@ -22,8 +22,6 @@ export const EditMemberForm = (props) => {
     <div className="new-member-form">
       <form onSubmit={onSubmit} method="POST">
         <label htmlFor="email">Email:</label>
-        <div>{console.log(props.user.fullName)}</div>
-
         <input id="_id" name="_id" type="hidden" defaultValue={props?.user._id}/>
 
         <input id="email" name="email" type="email" defaultValue={props?.user.email}/>
