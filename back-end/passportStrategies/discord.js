@@ -22,6 +22,7 @@ const passportDiscord = () => {
         const userDB = await User.findOne(params);
         if (!userDB) {
           const newUser = await User.create({ email: email, discordID: id })
+          newUser.newlyCreated = true
           return done(null, newUser)
         }
         console.log('user found!!!!!'.bgBlue)

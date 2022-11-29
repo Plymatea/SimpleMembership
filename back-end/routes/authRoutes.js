@@ -2,13 +2,13 @@ const express = require('express')
 const router  = express.Router()
 const passport = require('passport')
 
-// This is hacky. But is the user "createdAt" && "updatedAt" fields are equal it will redirect to the edit member page. The idea here is that the only time these should be equal is when the user is first created. All other times these should be different thus, redirect to the member page instead. There must be a better way, but this works for now. 
+// At Authentication the user will get a prop newlyCreated = true if routed through creation of new user.  Otherwise this prop returns falsy
 function NewlyCreatedUser(res) {
-  if (res.req.user.createdAt === res.req.user.updatedAt) {
-    res.redirect('http://localhost:3000/editmemberform')
-  } else {
-    res.redirect('http://localhost:3000/member')
+  console.log("NEWLY CREATED USER", res.req.user);
+  if (res.req.user.newlyCreated) {
+    return res.redirect('http://localhost:3000/editmemberform')
   }
+  return res.redirect('http://localhost:3000/member')
 }
 
 //  /api/auth/status
