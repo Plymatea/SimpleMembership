@@ -57,7 +57,7 @@
 * 10:25 - I'm going to work on that newMemberForm and see if I can get it to populate after authentication
 * 13:41 - WIP on the newMemberForm. The form itself took awhile just to plug and play the fields. I'm stuck atm using the form to make a PUT request to the database. HTML forms cannot make PUT requests... trying to find a way to make it happen. 
 * 20:03 - Spend the entire afternoon trying to figure how to submit the editMemberForm with a PUT request. I was just about there for hours and hours. I just needed a event.preventDefault call at the top. I circled around that for quite a while.   I also learned there is a console setting to persist the console through a url redirect. That is really handy here!  I did manage to get my presentation outline complete as well. So I'm prepped for tomorrow. 
-* SometimeLate - I ended up refactoring the api calls, committing it, causing and infinite re-render loop somehow. Couldn't figure it out, so i went down a rabbit hole of reverting and resetting my git commit history.  This caused me to not trust what I had so I deleted the entire project locally and cloning it down from the repo. Realized I wa missing my entire .env file and had to reconstruct it.... This led me to connecting to a "test" database in mongoDB instead of the "simple-membership" database.... FML.  I spend a lot of time trying to figure it out and gave up after midnight.  The project works, I just don't like it in the test database. 
+* SometimeLate - I ended up refactoring the api calls, committing it, causing an infinite re-render loop somehow. Couldn't figure it out, so i went down a rabbit hole of reverting and resetting my git commit history.  This caused me to not trust what I had so I deleted the entire project locally and cloning it down from the repo. Realized I was missing my entire .env file and had to reconstruct it.... This led me to connecting to a "test" database in mongoDB instead of the "simple-membership" database.... FML.  I spend a lot of time trying to figure it out and gave up after midnight.  The project works, I just don't like it in the test database. 
 
 #### 2022.05.19
 * 8:58 - So within about 10 minutes this morning i realized my MONGO_URI did not specify a database. So adding one in the middle of the URI, at the intended space, worked perfect. The simple things. 
@@ -91,3 +91,23 @@
     * I've tried setting the prop directly, setting it as a virtual (two different ways), also tried changing the JSON middleware to include "virtuals", but that completely broke everything. 
     * UPDATE: Got IT. When creating the schema, I needed to set options to retrieve virtuals when converting to JSON. I saw this before, but thought I needed in the middleware instead of the schema creation.  Yeah!
 * I'd like to break the Discord, Google, and Facebook IDs into their own schema. As well as the subscriptions, and mailing addresses. 
+
+#### 2022.11.29
+* After researching MongoDB sub-documents versus nested data, I feel like the auth IDs should stay on the user model at the top level. There is no need to create a separate schema or sub-document at all. Creating sub documents is a very valid thing, but will better utilized in a many to one relationship.  For example, classes attended or payments made would be better suited. That said, maybe these exact two examples are not great either. They should be their own collections. 
+* Ran across something today about creating an express middle ware that would call my protect the site through authentication. I'll have to look at this versus the MongoDB roles to see which is more viable. 
+* Being so new to coding is tough because there is 10 different ways to solve problems. Working for a company would give me some boundaries on best practices. Working on my own is like the wild west. Sometimes I feel like a kid in a candy shop running from one solution to the next with no foresight on the unknown repercussions down the road. 
+* It's been another frustrating day. Yesterday I figured out how to create a virtual at the top level of the document. Today I wanted to nest those virtuals. eg name.fullName from name.firstName + name.lastName.
+    * Seemed simple at first and really it is; once you know how. I had create the schema and THEN add the virtuals.
+    * Went around for a while trying to it at the schema creation with the OPTIONS and couldn't figure it out. Tried a second nested schema and kept running into an error on the React side not being able to find prototype.map on a list. 
+        * Toward the end I figured out this was because I was iterating over a object and changing that object at the same time. Causing a rerender and creating a infinite loop of calls. 
+        * tried a deep copy with JSON.parse(JSON.stringify(obj)) but still didn't work. Really cool way to create a deep copy though!
+    * Once I figured these two problems out I was able to combine the solutions to create fullName and fullMailingAddress nested a level deep. 
+* Spinning my wheels today was rough, again, but with each step I learn a bit more about data structures and mongoDB
+* Learned today
+    * Express Middleware next() and might be able to use for auth verification.
+    * MongoDB Sub-documents versus nesting
+    * Learned that MongoDB auth roles exist
+    * Creating nested virtuals in Mongoose
+* Next up
+    * Look at auth in the middleware instead of by page
+    * Integrate stripe
