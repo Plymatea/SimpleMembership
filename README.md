@@ -49,6 +49,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ## Road Map
 
 * _Security Classes_
+  * _Likely implement mongoDB roles_
   * _User class_
   * _Admin class_
 * _Memberships_
@@ -63,6 +64,8 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
   * _Sign in members to specific classes_
 * _Members_ 
   * _Ability to upload documents to a specific member profile_
+* _Documentation_
+  * _Integrate something like JSDoc to create documentation_
 
 
 ## License - [MIT](https://opensource.org/licenses/MIT)
