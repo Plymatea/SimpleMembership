@@ -1,15 +1,10 @@
 const mongoose = require('mongoose')
 
 const OPTIONS = {
-  virtuals: {
-    fullName: {
-      get() {
-        return this.name.firstName + ' ' + this.name.lastName;
-      }
-    }
-  },
-  toJSON: { virtuals: true }, // So `res.json()` and other `JSON.stringify()` functions include virtuals
-  toObject: { virtuals: true }
+  virtuals: { },
+  toJSON: { virtuals: true }, 
+  toObject: { virtuals: true },
+  timestamps: true,
 }
 
 const UserSchema = new mongoose.Schema(
@@ -17,7 +12,7 @@ const UserSchema = new mongoose.Schema(
     email: {
       type: String,
       lowercase: true,
-      required: true,
+      required: true,  //Only required field, application uses this field to check for duplicates
       unique: true,
     },
     discordID: {
@@ -62,14 +57,27 @@ const UserSchema = new mongoose.Schema(
       },
       dateSigned: Date,
     },
-    subscriptions: String,
     hemaExpirationDate: {
       type: Date,
       min: mongoose.now
     },
+    subscriptions: String,
   }, 
-  OPTIONS, 
-  {timestamps: true}
+  OPTIONS
 )
+
+UserSchema.virtual('name.fullName').get( function() {
+  return (this.name.firstName + ' ' + this.name.lastName)
+})
+UserSchema.virtual('mailingAddress.fullMailingAddress').get( function() {
+  const p = this.mailingAddress
+  const result = ''.concat(
+    p.addressLine1,'\n',
+    (p.addressLine2 ? p.addressLine2 + '\n': ""),
+    p.city, ", ", p.state, " ", p.zipCode, '\n',
+    p.country
+  )
+  return result
+})
 
 module.exports = mongoose.model('User', UserSchema)
