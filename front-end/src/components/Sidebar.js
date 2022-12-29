@@ -1,5 +1,7 @@
 import React from "react";
 import { Accordion } from "./index";
+import { NavLink } from "react-router-dom";
+
 
 
 export const Sidebar = () => {
@@ -10,6 +12,7 @@ export const Sidebar = () => {
       <Accordion>
         <div data-trigger='Financial' data-trigger-when-open='Financial: Sadly important'>
           <p>Financial Link here</p>
+          <NavLink to ="/payment">Payment Page</NavLink>
         </div>
         <div data-trigger='Memberships' data-trigger-when-open='Memberships: why ships?'>
           <p>Financial Link here</p>
