@@ -111,3 +111,10 @@
 * Next up
     * Look at auth in the middleware instead of by page
     * Integrate stripe
+
+#### 2022.12.28
+* Pff it's been a month since I've visited this.
+* Signing up on Stripe and preparing to integrate with the app. 
+* That took way too long to figure out my bugs. First I got a React Payment set up, which didn't take long. Then I had a bear of a time setting up the endpoint to creat a stripe checkout session. Turns out I was using router.route().post() incorrectly. bah. That literally took a few hours all by itself today. 
+* In the end it looks like i have a payments landing page, and an endpoint to subscribe to stripe subscriptions. 
+* Next I need to add the subscription options into a front end table that will then direct to the endpoint. 
