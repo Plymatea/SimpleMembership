@@ -1,6 +1,12 @@
 import './App.css';
 import { BrowserRouter as Router, Route, Routes} from 'react-router-dom'
-import { LoginPage, MemberPage, LandingPage, EditMemberPage } from './routes';
+import { 
+  LoginPage, 
+  MemberPage, 
+  LandingPage, 
+  EditMemberPage , 
+  PaymentPage
+} from './routes';
 
 function App() {
   return (
@@ -22,7 +28,11 @@ function App() {
         <Route 
           path='/editmemberform' 
           element={ <EditMemberPage /> } 
-        />       
+        />
+        <Route 
+          path='/payment' 
+          element={ <PaymentPage /> } 
+        />            
       </Routes>
     </Router>
   );
