@@ -117,4 +117,14 @@
 * Signing up on Stripe and preparing to integrate with the app. 
 * That took way too long to figure out my bugs. First I got a React Payment set up, which didn't take long. Then I had a bear of a time setting up the endpoint to creat a stripe checkout session. Turns out I was using router.route().post() incorrectly. bah. That literally took a few hours all by itself today. 
 * In the end it looks like i have a payments landing page, and an endpoint to subscribe to stripe subscriptions. 
-* Next I need to add the subscription options into a front end table that will then direct to the endpoint. 
+* Next I need to add the subscription options into a front end table that will then direct to the endpoint.
+
+#### 2022.12.30
+* Need to look at how to pull all product options from Stripe and dynamically generate them in a table. 
+*Fuck me I'm bad at Fetch requests apparently. Spent my time preparing the payment page to have mulitple buttons to subscribe to different subscriptions and the API dynamically take the data. I for a "form" set up pretty quick. Realized I didn't it and wanted just a button. TOOK forever to figure out how to just use a button. It's default behavior is "submit" had to change it to type='button'. 
+* Then the onClick inline function wasn't working. Went down a rabbit hole there too. Found out the inline functions are not best practice. That like the way that Epicodus taught us. Then I found out that in the react the best practice IS to do the onClick inline and what I was missing was arrow function in line so it calls when clicked and not onMount and onRender. ugg. 
+* Next I couldn't figure out why postman was calling the API correctly yet my fetch wan't returning it correctly. I needed to res.json() to properly see my link. 
+* Finally I moved the code around a little. Moving the functions to a utils file and adding in an error handling function. 
+* Currently works. One button subscribes to the one strip thing. 
+* Next I want to pass in the domain to the API as well as see how to get the subscription data into MongoDb
+* OK actually creating a pricing table in stripe to display all the products dynamically.
