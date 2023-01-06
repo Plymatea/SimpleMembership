@@ -4,25 +4,24 @@ import { Header, Sidebar, MemberControl, EditMemberForm } from "../components/in
 import { getAuthStatus, getAllMembers } from "../utils/api";
 import hamburger from "../assets/images/hamburger-1-lg.jpg"
 
-
 export const MemberPage = () => {
   let navigate = useNavigate();
   const [loading, setLoading] = React.useState(true)
   const [user, setUser] = React.useState()
   const [editingUser, setEditingUser] = React.useState()
   const [memberList, setMemberList] = React.useState()
-  // const user = React.useRef()
-  // const memberList = React.useRef()
 
   async function apiCall() {
     try {
-      const results = await Promise.all([
+      await Promise.all([
         getAuthStatus(),
         getAllMembers()
-      ]);
-      setUser(results[0].data)    // currentUser
-      setMemberList(results[1].data)  // allMembersList]
-      setTimeout(() => setLoading(false), 750)
+      ])
+      .then(res => {
+        setUser(res[0].data)    // currentUser
+        setMemberList(res[1].data)  // allMembersList]
+        setTimeout(() => setLoading(false), 750)
+      })
     } catch (err)  {
       console.log(err)
       navigate('../login');
