@@ -5,7 +5,7 @@ import {
   MemberPage, 
   LandingPage, 
   EditMemberPage , 
-  PaymentPage
+  SubscriptionPage
 } from './routes';
 
 function App() {
@@ -30,8 +30,8 @@ function App() {
           element={ <EditMemberPage /> } 
         />
         <Route 
-          path='/payment' 
-          element={ <PaymentPage /> } 
+          path='/subscription-new' 
+          element={ <SubscriptionPage /> } 
         />            
       </Routes>
     </Router>

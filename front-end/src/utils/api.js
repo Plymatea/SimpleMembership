@@ -20,18 +20,19 @@ export const putRequestMember = (id, user) =>
 export const deleteRequestMember = (id) =>
   axios.delete(`http://localhost:5000/api/user/${id}`, CREDENTIALS)
 
-export function callStripeCheckoutApi(product) {
-    fetch(`http://localhost:5000/api/payment/create-checkout-session`, {
-      method: 'POST',
-      headers: new Headers({
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      }),
-      body: JSON.stringify(product),
-      redirect: 'follow'
-    })
-    .then(handleError)
-    .then((res) => res.json())
-    .then((data) => window.location.assign(`${data.link}`))
-    .catch(console.log)
-  }
+// NOT NEEDED ANY LONGER DUE TO PRICING TABLE. WANT TO KEEP FOR REFERENCE LATER. 
+// export function callStripeCheckoutApi(product) {
+//     fetch(`http://localhost:5000/api/payment/create-checkout-session`, {
+//       method: 'POST',
+//       headers: new Headers({
+//         'Accept': 'application/json',
+//         'Content-Type': 'application/json'
+//       }),
+//       body: JSON.stringify(product),
+//       redirect: 'follow'
+//     })
+//     .then(handleError)
+//     .then((res) => res.json())
+//     .then((data) => window.location.assign(`${data.link}`))
+//     .catch(console.log)
+//   }
