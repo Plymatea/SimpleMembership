@@ -11,20 +11,39 @@ export const Sidebar = () => {
       
       <Accordion>
         <div data-trigger='Financial' data-trigger-when-open='Financial: Sadly important'>
-          <p>Financial Link here</p>
-          <NavLink to ="/payment">Payment Page</NavLink>
+          <ul>
+            <li>
+              <p>Financial Link here</p>
+            </li>
+          </ul>
         </div>
         <div data-trigger='Memberships' data-trigger-when-open='Memberships: why ships?'>
-          <p>Financial Link here</p>
+          <ul>
+            <li>
+              <NavLink to ="/subscription-new">New Subscriptions</NavLink>
+            </li>
+          </ul>
         </div>
         <div data-trigger='Members' data-trigger-when-open='Members: are friends'>
-          <p>Members Link here</p>
+          <ul>
+            <li>
+              <p>Members Link here</p>
+            </li>
+          </ul>
         </div>
         <div data-trigger='Reports' data-trigger-when-open='Reports: Knowledge == key'>
-          <p>Reports Link here</p>
+          <ul>
+            <li>
+              <p>Reports Link here</p>
+            </li>
+          </ul>
         </div>
         <div data-trigger='Setup' data-trigger-when-open='Setup: you are control'>
-          <p>Setup Link here</p>
+          <ul>
+            <li>
+              <p>Setup Link here</p>
+            </li>
+          </ul>
         </div>
       </Accordion>
     </React.Fragment>
