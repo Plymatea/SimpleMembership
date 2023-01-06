@@ -13,15 +13,14 @@ export const Sidebar = () => {
         <div data-trigger='Financial' data-trigger-when-open='Financial: Sadly important'>
           <ul>
             <li>
-              <p>Financial Link here</p>
+             <p>Financial Link here</p>
             </li>
           </ul>
         </div>
         <div data-trigger='Memberships' data-trigger-when-open='Memberships: why ships?'>
           <ul>
-            <li>
-              <NavLink to ="/subscription-new">New Subscriptions</NavLink>
-            </li>
+            <li><NavLink to ="/subscription-new">New Subscriptions</NavLink></li>
+            <li><a href="https://billing.stripe.com/p/login/test_14k3fCaqAaut03CeUU" target="_blank" rel="noopener noreferrer">Manage Subscription</a></li>
           </ul>
         </div>
         <div data-trigger='Members' data-trigger-when-open='Members: are friends'>
