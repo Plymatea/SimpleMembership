@@ -128,3 +128,9 @@
 * Currently works. One button subscribes to the one strip thing. 
 * Next I want to pass in the domain to the API as well as see how to get the subscription data into MongoDb
 * OK actually creating a pricing table in stripe to display all the products dynamically.
+
+#### 2023.01.05
+* Stripe makes this really simple... Created a nice looking pricing table in a matter of minutes. They create a link to manage subscrioptions which I can plug and play in the code. Seems quick. Now to implement into the code. 
+* Wow that pricing table made it really easy. Basically wasted my day 2022.12.30 though I did learn alot on 12/30 about stripe and how it works. 
+* Want to include a way to manage stripe subscriptions. They have a portal link for it which I've created. Not sure where to put it though. 
+* The portal link was super easy. I'm having issues of signing up a new subscription on an existing stripe customer. Need to create a stripeID upon the first log in and save it. Then attach that ID to new subscriptions. But how to attach the ID to the new subscriptions...??
