@@ -15,6 +15,10 @@ const UserSchema = new mongoose.Schema(
       required: true,  //Only required field, application uses this field to check for duplicates
       unique: true,
     },
+    stripeID: {
+      type: String,
+      unique: true
+    },
     discordID: {
       type: String,
       unique: true,

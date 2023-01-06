@@ -22,7 +22,7 @@ export const EditMemberForm = (props) => {
       <form onSubmit={onSubmit} method="POST">
         <label htmlFor="email">Email:</label>
         <input id="_id" name="_id" type="hidden" defaultValue={props?.user._id}/>
-
+        <input id="stripeId" name="stripeId" type="hidden" defaultValue={props?.user.stripeId}/>
         <input id="email" name="email" type="email" defaultValue={props?.user.email}/>
         <br/>
         <label htmlFor="firstName">First Name:</label>
